@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTable.vue renders items filtered when search not null 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="form-floating mx-3 mt-3"
+  >
+    <input
+      class="form-control"
+      id="search"
+      placeholder="Search"
+      type="text"
+    />
+    <label
+      for="search"
+    >
+      Search
+    </label>
+  </div>
+  <table
+    class="table"
+  >
+    <thead>
+      <tr>
+        
+        <th
+          scope="col"
+        >
+          Column Label
+        </th>
+        <th
+          scope="col"
+        >
+          Column Label 2
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+       [
+  {
+    "myKey": "any-value",
+    "myKey2": "any-value-2"
+  },
+  {
+    "myKey": "filtered",
+    "myKey2": "filtered-2"
+  }
+] 
+      
+      <tr>
+        
+        <td>
+          any-value
+        </td>
+        <td>
+          any-value-2
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td>
+          filtered
+        </td>
+        <td>
+          filtered-2
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+`;
