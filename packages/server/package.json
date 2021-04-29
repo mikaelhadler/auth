@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "@auth/server",
   "version": "1.0.0",
   "description": "Clean Architecture project",
   "main": "index.js",

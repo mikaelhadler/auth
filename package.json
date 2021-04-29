@@ -1,5 +1,5 @@
 {
-  "name": "auth-monorepo",
+  "name": "auth",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Adriano Reis <adriano_silvareis@hotmail.com>",
