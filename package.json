@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start-web": "yarn workspace @auth/web start",
-    "start-server": "yarn workspace @auth/server start"
+    "start-server": "yarn workspace @auth/server start",
+    "test": "npx jest"
   },
   "devDependencies": {
     "@types/faker": "^5.5.3",

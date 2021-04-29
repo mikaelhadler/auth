@@ -1,5 +1,7 @@
+const { name } = require('./package.json')
+
 module.exports = {
-  clearMocks: true,
+  displayName: name,
   coverageDirectory: 'coverage',
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1'
@@ -11,6 +13,5 @@ module.exports = {
   testEnvironment: 'node',
   transform: {
     '.+\\.ts$': 'ts-jest'
-  },
-  testMatch: ['**/?(*.)+(spec|test).ts']
+  }
 }
