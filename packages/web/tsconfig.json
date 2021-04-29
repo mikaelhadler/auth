@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "downlevelIteration": true,
     "module": "esnext",
+    "downlevelIteration": true,
     "noImplicitAny": true,
     "jsx": "preserve",
-    "importHelpers": true,
     "useDefineForClassFields": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "webpack-env",
