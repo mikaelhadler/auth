@@ -29,24 +29,42 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-
-interface IHeaders<T> {
-  title: string;
-  key: keyof T;
-}
+import {
+  ItemModel,
+  Headers,
+  ColumnsConfig,
+} from "./protocols/data-table-utils";
 
 @Options({
   name: "DataTable",
   props: {
     items: { type: Array, required: true },
-    headers: { type: Array, required: true },
+    columns: { type: Array, required: true },
   },
 })
-export default class DataTable<T> extends Vue {
+export default class DataTable<T extends ItemModel> extends Vue {
   items!: Array<T>;
-  headers!: IHeaders<T>[];
+  columns!: ColumnsConfig<T>;
 
   search = "";
+  get headers(): Headers<T>[] {
+    return this.columns.map(
+      (column): Headers<T> => {
+        if (typeof column === "string") {
+          return {
+            title: column,
+            key: column,
+          };
+        }
+        if (typeof column === "object") {
+          return {
+            title: column.title,
+            key: column.key,
+          };
+        }
+      }
+    );
+  }
 
   get filterdItems(): T[] {
     return this.items.filter((item) =>

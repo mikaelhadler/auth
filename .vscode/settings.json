@@ -1,0 +1,11 @@
+{
+  "vetur.validation.template": false,
+  // "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "css.validate": false,
+  "cSpell.words": [
+    "Vetur",
+    "scripthost",
+    "tailwindcss"
+  ],
+}
