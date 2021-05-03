@@ -1,5 +1,5 @@
 import { DbGetActivityLogById } from '@/use-case/activity-log/db-get-activity-log-by-id'
-import { GetActivityLogByIdRepository } from '@/use-case/activity-log/protocols/list-activity-log-by-account-repository'
+import { GetActivityLogByIdRepository } from '@/use-case/activity-log/protocols/get-activity-log-by-id-repository'
 import { mockedActivityLog } from '@/__tests__/entity/mock/activity-log'
 import { makeGetActivityLogByIdRepositoryStub } from '../stubs/activity-log'
 

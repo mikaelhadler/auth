@@ -1,6 +1,6 @@
 import { DbListAllAccount } from '@/use-case/account/db-list-all-account'
 import { ListAllAccountRepository } from '@/use-case/account/protocols/list-all-account'
-import { makeListAllAccountRepositoryStub, mockedAccountList, mockedAccountList } from '../stubs/account'
+import { makeListAllAccountRepositoryStub, mockedAccountList } from '../stubs/account'
 
 describe('DbListAllAccount', () => {
   it('should call ListAllAccountRepository', async () => {

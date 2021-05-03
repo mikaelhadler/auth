@@ -3,13 +3,10 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": false, // fix Vetur(1149)
     "target": "ES2019",
-    "module": "UMD",
+    "module": "CommonJS",
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["*"]
-    },
   },
   "include": ["**/*.ts"]
 }
