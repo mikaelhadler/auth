@@ -1,4 +1,4 @@
-import { uuid } from './Utils'
+import { uuid } from './utils'
 
 export enum AuthenticationStatusEnum {
   Online,

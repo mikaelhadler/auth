@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": false, // fix Vetur(1149)
     "target": "ES2019",
     "sourceMap": true,
     "removeComments": true, 
     "importHelpers": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": false,
     "esModuleInterop": true,
     "types": ["faker"]
   },

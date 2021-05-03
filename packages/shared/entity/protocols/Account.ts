@@ -1,4 +1,4 @@
-import { uuid } from './Utils'
+import { uuid } from './utils'
 
 export enum AccountStatusEnum {
   WAITING_FOR_APPROVAL,

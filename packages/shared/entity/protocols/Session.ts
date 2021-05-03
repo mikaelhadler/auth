@@ -1,4 +1,4 @@
-import { ip, uuid } from './Utils'
+import { ip, uuid } from './utils'
 
 export interface Session {
   id: uuid

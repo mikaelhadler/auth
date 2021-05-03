@@ -1,4 +1,4 @@
-import { uuid } from './Utils'
+import { uuid } from './utils'
 
 // not save in database
 export interface Activity {

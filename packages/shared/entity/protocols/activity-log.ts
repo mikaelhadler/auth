@@ -1,5 +1,5 @@
-import { Activity } from './AuthGroup'
-import { ip, uuid } from './Utils'
+import { Activity } from './auth-group'
+import { ip, uuid } from './utils'
 
 export interface ActivityLog {
   id: uuid,

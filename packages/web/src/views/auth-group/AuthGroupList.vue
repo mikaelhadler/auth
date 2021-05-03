@@ -6,9 +6,9 @@
 import { Options, Vue } from "vue-class-component";
 import DataTable from "@/components/data-table/DataTable.vue";
 import { ColumnsConfig } from "../../components/data-table/protocols/data-table-utils";
-import { AuthGroup as AuthGroupModel } from "@auth/entity";
+import { AuthGroup } from "@auth/entity";
 
-class AuthGroupTable extends DataTable<AuthGroupModel> {}
+class AuthGroupTable extends DataTable<AuthGroup> {}
 
 @Options({
   components: {
@@ -16,12 +16,12 @@ class AuthGroupTable extends DataTable<AuthGroupModel> {}
   },
 })
 export default class AuthGroupList extends Vue {
-  columns: ColumnsConfig<AuthGroupModel> = [
+  columns: ColumnsConfig<AuthGroup> = [
     { title: "Meu Titulo", key: "title" },
     "activities",
   ];
 
-  items: AuthGroupModel[] = [
+  items: AuthGroup[] = [
     {
       id: "1-1-1-1",
       title: "system Admin",
