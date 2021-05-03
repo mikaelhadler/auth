@@ -1,5 +1,4 @@
-import { Activity, ListAuthGroupActivity } from '@/entity/auth-group'
-import { uuid } from '@/entity/utils'
+import { Activity, ListAuthGroupActivity, uuid } from '@auth/entity'
 import { GetAuthGroupRepository } from './protocols/get-auth-group-repository'
 
 export class DbListAuthGroupActivity implements ListAuthGroupActivity {

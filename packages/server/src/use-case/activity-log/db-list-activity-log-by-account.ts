@@ -1,5 +1,4 @@
-import { ActivityLog, ListActivityLogByAccount } from '@/entity/activity-log'
-import { uuid } from '@/entity/utils'
+import { ActivityLog, ListActivityLogByAccount, uuid } from '@auth/entity'
 import { ListActivityLogByAccountRepository } from './protocols/list-activity-log-by-account-repository'
 
 export class DbListActivityLogByAccount implements ListActivityLogByAccount {

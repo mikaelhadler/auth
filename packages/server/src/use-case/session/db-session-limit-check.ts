@@ -1,5 +1,4 @@
-import { SessionLimitCheckByAccount } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { SessionLimitCheckByAccount, uuid } from '@auth/entity'
 import { AuthenticationByAccountRepository } from './protocols/authentication-by-account-repository'
 import { SessionCountByAuthenticationRepository } from './protocols/session-count-by-authentication-repository'
 

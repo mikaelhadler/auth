@@ -1,5 +1,4 @@
-import { ActivityLogProperties, ActivityLog } from '@/entity/activity-log'
-import { uuid } from '@/entity/utils'
+import { ActivityLogProperties, ActivityLog, uuid } from '@auth/entity'
 import { CreateActivityLogRepository } from '@/use-case/activity-log/protocols/create-activity-log-repository'
 import { GetActivityLogByIdRepository } from '@/use-case/activity-log/protocols/get-activity-log-by-id-repository'
 import { ListActivityLogByAccountRepository } from '@/use-case/activity-log/protocols/list-activity-log-by-account-repository'

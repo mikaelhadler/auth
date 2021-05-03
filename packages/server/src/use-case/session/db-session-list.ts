@@ -1,4 +1,4 @@
-import { Session, SessionList } from '@/entity/session'
+import { Session, SessionList } from '@auth/entity'
 import { SessionFilters, SessionListRepository } from './protocols/session-repository'
 
 export class DbSessionList implements SessionList {

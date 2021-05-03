@@ -14,6 +14,9 @@
     "clear": "rm -rf dist",
     "build": "npm run clear && npx tsc -p tsconfig-build.json"
   },
+  "dependencies": {
+    "@auth/entity": "*"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",

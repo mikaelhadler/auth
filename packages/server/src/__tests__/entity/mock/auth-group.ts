@@ -1,5 +1,4 @@
-import { Activity, AuthGroup, AuthGroupProperties } from '@/entity/auth-group'
-import { uuid } from '@/entity/utils'
+import { Activity, AuthGroup, AuthGroupProperties, uuid } from '@auth/entity'
 import faker from 'faker'
 
 export function mockAuthGroupActivity (): Activity {

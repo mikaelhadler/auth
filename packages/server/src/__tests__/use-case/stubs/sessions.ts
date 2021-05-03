@@ -1,5 +1,4 @@
-import { Session, SessionById } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { Session, SessionById, uuid } from '@auth/entity'
 import { SessionByIdRepository } from '@/use-case/session/protocols/session-by-id-repository'
 import { SessionCountByAuthenticationRepository } from '@/use-case/session/protocols/session-count-by-authentication-repository'
 import { SessionDropRepository } from '@/use-case/session/protocols/session-drop'

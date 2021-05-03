@@ -1,4 +1,4 @@
-import { Session } from '@/entity/session'
+import { Session } from '@auth/entity'
 import { SessionListRepository } from '@/use-case/session/protocols/session-repository'
 import { DbSessionList } from '@/use-case/session/db-session-list'
 import { mockedReturnGetSessionListRepository } from '../stubs/sessions'

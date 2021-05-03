@@ -1,4 +1,4 @@
-import { AuthGroup, ListAuthGroup } from '@/entity/auth-group'
+import { AuthGroup, ListAuthGroup } from '@auth/entity'
 import { ListAuthGroupRepository } from './protocols/list-auth-group-repository'
 
 export class DbListAuthGroup implements ListAuthGroup {

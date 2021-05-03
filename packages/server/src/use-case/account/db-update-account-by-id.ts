@@ -1,5 +1,4 @@
-import { AccountModel, UpdateAccountById } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, UpdateAccountById, uuid } from '@auth/entity'
 import { UpdateAccountByIdRepository } from './protocols/update-account-by-id-repository'
 
 export class DbUpdateAccountById implements UpdateAccountById {

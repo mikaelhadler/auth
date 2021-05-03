@@ -1,5 +1,4 @@
-import { Session } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { Session, uuid } from '@auth/entity'
 
 export type SessionFilters = Partial<Session>
 export interface SessionListRepository {

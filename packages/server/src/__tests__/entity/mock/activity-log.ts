@@ -1,5 +1,4 @@
-import { ActivityLog, ActivityLogProperties } from '@/entity/activity-log'
-import { uuid, ip } from '@/entity/utils'
+import { ActivityLog, ActivityLogProperties, uuid, ip } from '@auth/entity'
 import faker from 'faker'
 
 export const mockedActivityLog = mockActivityLog()

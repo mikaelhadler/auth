@@ -1,4 +1,4 @@
-import { AccountModel, ListAllAccount } from '@/entity/account'
+import { AccountModel, ListAllAccount } from '@auth/entity'
 import { ListAllAccountRepository } from './protocols/list-all-account'
 
 export class DbListAllAccount implements ListAllAccount {

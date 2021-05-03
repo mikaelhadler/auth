@@ -1,5 +1,4 @@
-import { AccountModel, GetAccountById } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, GetAccountById, uuid } from '@auth/entity'
 import { GetAccountByIdRepository } from './protocols/account-by-id-repository'
 
 export class DbAccountById implements GetAccountById {

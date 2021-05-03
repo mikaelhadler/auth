@@ -1,5 +1,4 @@
-import { AccountModel, AccountModelUpdates } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, AccountModelUpdates, uuid } from '@auth/entity'
 
 export interface UpdateAccountByIdRepository {
   update(accountId: uuid, data: AccountModelUpdates): Promise<AccountModel>

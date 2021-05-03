@@ -1,5 +1,4 @@
-import { AccountModel } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, uuid } from '@auth/entity'
 import { DbUpdateAccountById } from '@/use-case/account/db-update-account-by-id'
 import { UpdateAccountByIdRepository } from '@/use-case/account/protocols/update-account-by-id-repository'
 import { mockedAccount } from '../stubs/account'

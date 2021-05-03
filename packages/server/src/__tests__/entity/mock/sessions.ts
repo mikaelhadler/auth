@@ -1,5 +1,4 @@
-import { Session } from '@/entity/session'
-import { ip, uuid } from '@/entity/utils'
+import { Session, ip, uuid } from '@auth/entity'
 import faker from 'faker'
 
 export function mockReturnSession (): Session {

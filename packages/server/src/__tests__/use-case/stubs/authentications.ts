@@ -1,5 +1,4 @@
-import { Authentication, AuthenticationStatusEnum } from '@/entity/authentication'
-import { uuid } from '@/entity/utils'
+import { Authentication, AuthenticationStatusEnum, uuid } from '@auth/entity'
 import { AuthenticationByAccountRepository } from '@/use-case/session/protocols/authentication-by-account-repository'
 import { AuthenticationUpdateStatusRepository } from '@/use-case/session/protocols/authentication-update-status-repository'
 import { mockAuthentication } from '@/__tests__/entity/mock/authentications'

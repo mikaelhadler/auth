@@ -1,5 +1,4 @@
-import { Session, SessionById } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { Session, SessionById, uuid } from '@auth/entity'
 import { SessionByIdRepository } from './protocols/session-by-id-repository'
 
 export class DbSessionById implements SessionById {

@@ -1,4 +1,4 @@
-import { AuthGroup, AuthGroupProperties, CreateAuthGroup } from '@/entity/auth-group'
+import { AuthGroup, AuthGroupProperties, CreateAuthGroup } from '@auth/entity'
 import { CreateAuthGroupRepository } from './protocols/create-auth-group-repository'
 
 export class DbCreateAuthGroup implements CreateAuthGroup {

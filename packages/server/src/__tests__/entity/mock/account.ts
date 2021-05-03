@@ -1,4 +1,4 @@
-import { AccountModel, AccountStatusEnum } from '@/entity/account'
+import { AccountModel, AccountStatusEnum } from '@auth/entity'
 import faker from 'faker'
 
 export function mockAccount (): AccountModel {

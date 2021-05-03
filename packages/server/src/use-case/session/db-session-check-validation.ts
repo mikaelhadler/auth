@@ -1,5 +1,4 @@
-import { SessionById, SessionCheckValidation } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { SessionById, SessionCheckValidation, uuid } from '@auth/entity'
 import { SessionDropRepository } from './protocols/session-drop'
 
 export class DbSessionCheckValidation implements SessionCheckValidation {

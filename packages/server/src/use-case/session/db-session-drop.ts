@@ -1,6 +1,4 @@
-import { AuthenticationStatusEnum } from '@/entity/authentication'
-import { SessionDrop } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { AuthenticationStatusEnum, SessionDrop, uuid } from '@auth/entity'
 import { AuthenticationByAccountRepository } from './protocols/authentication-by-account-repository'
 import { AuthenticationUpdateStatusRepository } from './protocols/authentication-update-status-repository'
 import { SessionCountByAuthenticationRepository } from './protocols/session-count-by-authentication-repository'

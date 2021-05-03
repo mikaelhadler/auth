@@ -1,4 +1,4 @@
-import { AuthenticationByAccount, AuthenticationStatusEnum } from '@/entity/authentication'
+import { AuthenticationByAccount, AuthenticationStatusEnum } from '@auth/entity'
 import { AuthenticationUpdateStatusRepository } from '@/use-case/session/protocols/authentication-update-status-repository'
 import { SessionCountByAuthenticationRepository } from '@/use-case/session/protocols/session-count-by-authentication-repository'
 import { SessionDropRepository } from '@/use-case/session/protocols/session-drop'

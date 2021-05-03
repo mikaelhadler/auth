@@ -1,5 +1,4 @@
-import { AccountModel, ListAccountByAuthGroup } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, ListAccountByAuthGroup, uuid } from '@auth/entity'
 import { AccountsByGroupRepository } from './protocols/account-by-auth-group-repository'
 
 export class DbListAccountByAuthGroup implements ListAccountByAuthGroup {

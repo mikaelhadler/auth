@@ -1,5 +1,4 @@
-import { Authentication, AuthenticationStatusEnum } from '@/entity/authentication'
-import { uuid } from '@/entity/utils'
+import { Authentication, AuthenticationStatusEnum, uuid } from '@auth/entity'
 import faker from 'faker'
 
 const SESSION_LIMIT = 3

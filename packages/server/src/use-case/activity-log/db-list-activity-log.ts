@@ -1,4 +1,4 @@
-import { ActivityLog, ListActivityLog } from '@/entity/activity-log'
+import { ActivityLog, ListActivityLog } from '@auth/entity'
 import { ListActivityLogRepository } from './protocols/list-activity-log-repository'
 
 export class DbListActivityLog implements ListActivityLog {

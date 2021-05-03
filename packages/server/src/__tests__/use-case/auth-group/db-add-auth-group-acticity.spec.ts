@@ -1,4 +1,3 @@
-import { Activity } from '@/entity/auth-group'
 import { DbAddAuthGroupActivity } from '@/use-case/auth-group/db-add-auth-group-activity'
 import { GetAuthGroupRepository } from '@/use-case/auth-group/protocols/get-auth-group-repository'
 import { UpdateAuthGroupRepository } from '@/use-case/auth-group/protocols/update-auth-group-repository'

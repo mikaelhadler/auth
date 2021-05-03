@@ -1,5 +1,4 @@
-import { AccountModel, CancelAccountById } from '@/entity/account'
-import { uuid } from '@/entity/utils'
+import { AccountModel, CancelAccountById, uuid } from '@auth/entity'
 import { CancelAccountByIdRepository } from './protocols/cancel-account-by-id-repository'
 
 export class DbCancelAccountById implements CancelAccountById {

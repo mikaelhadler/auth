@@ -1,5 +1,4 @@
-import { Session, SessionByAccount } from '@/entity/session'
-import { uuid } from '@/entity/utils'
+import { Session, SessionByAccount, uuid } from '@auth/entity'
 import { AuthenticationByAccountRepository } from './protocols/authentication-by-account-repository'
 import { SessionListByAuthenticationRepository } from './protocols/session-repository'
 

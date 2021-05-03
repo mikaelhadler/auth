@@ -1,4 +1,4 @@
-import { ActivityLog, ActivityLogProperties, CreateActivityLog } from '@/entity/activity-log'
+import { ActivityLog, ActivityLogProperties, CreateActivityLog } from '@auth/entity'
 import { CreateActivityLogRepository } from './protocols/create-activity-log-repository'
 
 export class DbCreateActivityLog implements CreateActivityLog {

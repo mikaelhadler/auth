@@ -1,5 +1,4 @@
-import { AuthGroupProperties, AuthGroup } from '@/entity/auth-group'
-import { uuid } from '@/entity/utils'
+import { AuthGroupProperties, AuthGroup, uuid } from '@auth/entity'
 import { CreateAuthGroupRepository } from '@/use-case/auth-group/protocols/create-auth-group-repository'
 import { GetAuthGroupRepository } from '@/use-case/auth-group/protocols/get-auth-group-repository'
 import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
