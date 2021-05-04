@@ -4,6 +4,7 @@
   "vetur.validation.style": false,
   "css.validate": false,
   "cSpell.words": [
+    "Postgres",
     "Vetur",
     "scripthost",
     "tailwindcss"
