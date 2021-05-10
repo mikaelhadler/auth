@@ -5,7 +5,7 @@ import { AuthGroupPrismaRepository } from '@/adapters/gateways/auth-group/auth-g
 import { prismaMock } from '@/__tests__/database/prisma-client-mock'
 
 describe('ListAuthGroupRepository', () => {
-  it('should call findMal', async () => {
+  it('should call findMany', async () => {
     const { sut } = makeSut()
     const expectedResponse = [
       {
