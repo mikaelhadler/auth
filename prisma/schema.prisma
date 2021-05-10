@@ -7,25 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model activities {
-  id                     String                   @id @default(uuid())
-  name                   String                   @unique
-  permissions            String[]
-  auth_groups            auth_groups[]
-  auth_groups_activities auth_groups_activities[]
+model as_activities {
+  id          String                      @id @default(uuid())
+  name        String                      @unique
+  permissions String[]
+  auth_groups as_auth_groups_activities[]
 }
 
-model auth_groups_activities {
-  id             String       @id @default(uuid())
-  activity       activities?  @relation(fields: [activity_id], references: [id])
-  auth_group     auth_groups? @relation(fields: [auth_groups_id], references: [id])
-  activity_id    String?
-  auth_groups_id String?
+model as_auth_groups {
+  id         String                      @id @default(uuid())
+  title      String                      @unique
+  activities as_auth_groups_activities[]
 }
 
-model auth_groups {
-  id                     String                   @id @default(uuid())
-  title                  String
-  activities             activities[]
-  auth_groups_activities auth_groups_activities[]
+model as_auth_groups_activities {
+  activity       as_activities  @relation(fields: [activity_id], references: [id])
+  auth_group     as_auth_groups @relation(fields: [auth_groups_id], references: [id])
+  activity_id    String
+  auth_groups_id String
+  createdAt      DateTime       @default(now())
+
+  @@id([activity_id, auth_groups_id])
 }
