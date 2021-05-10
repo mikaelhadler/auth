@@ -1,6 +1,6 @@
-import { AuthGroup } from '@/../../shared/entity'
+import { AuthGroup } from '@auth/entity'
 import { ListAuthGroupController } from '@/adapters/controllers/auth-group/list-auth-group-controller'
-import { HttpResponse } from '@/adapters/presentation/http'
+import { HttpResponse } from '@/adapters/presentation/protocols/http'
 import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
 import { mockedAuthGroupList } from '@/__tests__/use-case/stubs/auth-group'
 
