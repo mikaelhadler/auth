@@ -4,7 +4,7 @@
 
 | use-case | controller | repository | description                                |
 | -------- | ---------- | ---------- | ------------------------------------------ |
-| - [x]    | - [ ]      | - [ ]      | list all accounts for the administrator    |
+|  [x]    |  [ ]      |  [ ]      | list all accounts for the administrator    |
 | - [x]    | - [ ]      | - [ ]      | list accounts by auth-group                |
 | - [x]    | - [ ]      | - [ ]      | get account by id                          |
 | - [x]    | - [ ]      | - [ ]      | update account                             |
