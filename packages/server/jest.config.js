@@ -14,5 +14,6 @@ module.exports = {
   transform: {
     '.+\\.ts$': 'ts-jest'
   },
-  testMatch: ['**/?(*.)+(spec|test).ts']
+  testMatch: ['**/?(*.)+(spec|test).ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/__tests__/database/prisma-client-mock.ts']
 }

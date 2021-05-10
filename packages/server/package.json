@@ -6,11 +6,11 @@
   "scripts": {
     "start": "ts-node-dev -r tsconfig-paths/register  --respawn --transpile-only --no-notify --ignore-watch node_modules src/index.ts",
     "test": "jest --passWithNoTests --noStackTrace --runInBand --detectOpenHandles",
-    "test:silent": "npm test -- --silent",
-    "test:staged": "npm test:silent -- --findRelatedTests",
-    "test:unit": "npm test -- --watch -c jest-unit-config.js",
-    "test:integration": "npm test -- --watch -c jest-integration-config.js",
-    "test:ci": "npm test:silent -- --coverage",
+    "test:silent": "npm run test -- --silent",
+    "test:staged": "npm run test:silent -- --findRelatedTests",
+    "test:unit": "npm run test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm run test -- --watch -c jest-integration-config.js",
+    "test:ci": "npm run test:silent -- --coverage",
     "clear": "rm -rf dist",
     "build": "npm run clear && npx tsc -p tsconfig-build.json"
   },
