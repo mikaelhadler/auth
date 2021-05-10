@@ -1,4 +1,6 @@
-# login-flow
+# database
+
+[HOME](../../README.md)
 
 ```
 account -> authentication -> session
@@ -18,9 +20,9 @@ permitted activities:
   "email": "Sincere@april.biz",  // confidential data
   "phone": "1-770-736-8031 x56442",  // confidential data
   "address": {
-    "street": "Kulas Light",  // confidential data
+    "street": "Kulak Light",  // confidential data
     "suite": "Apt. 556",  // confidential data
-    "city": "Gwenborough",  // confidential data
+    "city": "Gainsborough",  // confidential data
     "zipcode": "92998-3874"  // confidential data
   },
   "created-at": "2013-01-01 12:00:00Z",
@@ -37,7 +39,7 @@ permitted activities:
 ```javascript
 {
   "account_id": "account_id",
-  "password": "hashpassword",  // confidential data
+  "password": "hash_password",  // confidential data
   "attempts": 0,
   "session_limit": 3,
   "status": "offline", //"online" | "offline" | "blocked" | "created"
