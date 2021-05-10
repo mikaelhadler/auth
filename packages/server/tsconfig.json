@@ -12,6 +12,6 @@
     },
     "types": ["jest"],
   },
-  "include": ["src"],
+  "include": ["src", "custom-namespaces.d.ts", "types/custom-namespaces.d.ts"],
   "exclude": ["node_modules"]
 }

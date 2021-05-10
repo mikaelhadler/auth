@@ -4,7 +4,7 @@
   "description": "Clean Architecture project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "ts-node-dev -r tsconfig-paths/register  --respawn --transpile-only --no-notify --ignore-watch node_modules src/index.ts",
     "test": "jest --passWithNoTests --noStackTrace --runInBand --detectOpenHandles",
     "test:silent": "npm test -- --silent",
     "test:staged": "npm test:silent -- --findRelatedTests",
@@ -16,9 +16,12 @@
   },
   "dependencies": {
     "@auth/entity": "*",
-    "@prisma/client": "^2.21.2"
+    "@prisma/client": "^2.21.2",
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.1.6"
   },
   "devDependencies": {
+    "@types/express": "^4.17.11",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "eslint": "^7.12.1",
@@ -27,6 +30,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "jest-mock-extended": "^1.0.14",
+    "nodemon": "^2.0.7",
     "prisma": "^2.21.2",
     "sinon": "^10.0.0",
     "supertest": "^6.1.3",
