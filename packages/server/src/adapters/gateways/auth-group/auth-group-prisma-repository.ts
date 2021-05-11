@@ -14,7 +14,7 @@ type FullAuthGroup = as_auth_groups & {
 // TODO - make tests (jest-mock-extended | prisma-test-utils)
 export class AuthGroupPrismaRepository implements ListAuthGroupRepository, CreateAuthGroupRepository {
   async create (authGroup: AuthGroupProperties): Promise<AuthGroup> {
-    await prisma.as_auth_groups.create({
+    const created = await prisma.as_auth_groups.create({
       data: {
         title: authGroup.title,
         activities: {
@@ -24,7 +24,7 @@ export class AuthGroupPrismaRepository implements ListAuthGroupRepository, Creat
         }
       }
     })
-    return null
+    return created
   }
 
   async list (): Promise<AuthGroupModel[]> {
