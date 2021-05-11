@@ -3,6 +3,7 @@ import faker from 'faker'
 
 export function mockAuthGroupActivity (): Activity {
   return {
+    id: <uuid>faker.datatype.uuid(),
     name: faker.name.title(),
     permissions: [
       faker.lorem.word(5),

@@ -1,3 +1,4 @@
+import { uuid } from '@/../../shared/entity'
 import { DbRemoveAuthGroupActivity } from '@/use-case/auth-group/db-remove-auth-group-activity'
 import { GetAuthGroupRepository } from '@/use-case/auth-group/protocols/get-auth-group-repository'
 import { UpdateAuthGroupRepository } from '@/use-case/auth-group/protocols/update-auth-group-repository'
@@ -36,6 +37,7 @@ describe('DbRemoveAuthGroupActivity', () => {
     const authGroupId = 'a1-a1-a1-a1'
     const expectedThrow = new Error('activity not found to remove')
     const anyActivity = {
+      id: <uuid>authGroupId,
       name: 'anyName',
       permissions: []
     }

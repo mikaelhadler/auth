@@ -11,6 +11,7 @@ export const mockedActivityLogList = [
 
 export function mockActivityLog (): ActivityLog {
   const activity = {
+    id: <uuid>faker.datatype.uuid(),
     name: faker.lorem.word(10),
     permissions: [
       faker.lorem.word(5),
