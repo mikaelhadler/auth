@@ -1,22 +1,21 @@
-import { AuthGroup } from '@auth/entity'
+import { AuthGroup, ListAuthGroup } from '@auth/entity'
 import { ListAuthGroupController } from '@/adapters/controllers/auth-group/list-auth-group-controller'
 import { HttpResponse } from '@/adapters/presentation/protocols/http'
-import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
 import { mockedAuthGroupList } from '@/__tests__/use-case/stubs/auth-group'
 
 describe('ListAuthGroupController', () => {
-  it('should call listAuthGroupRepository', async () => {
-    const { sut, listAuthGroupRepositoryStub } = makeSut()
+  it('should call ListAuthGroup', async () => {
+    const { sut, listAuthGroupStub } = makeSut()
     const functionName = 'list'
-    const functionSpy = jest.spyOn(listAuthGroupRepositoryStub, functionName)
+    const functionSpy = jest.spyOn(listAuthGroupStub, functionName)
     await sut.handler()
     expect(functionSpy).toHaveBeenCalled()
   })
-  it('should return HttpResponse.serverError with listAuthGroupRepository throws', async () => {
-    const { sut, listAuthGroupRepositoryStub } = makeSut()
+  it('should return HttpResponse.serverError with ListAuthGroup throws', async () => {
+    const { sut, listAuthGroupStub } = makeSut()
     const functionName = 'list'
     const expectedThrow = new Error('any_repository_error')
-    jest.spyOn(listAuthGroupRepositoryStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest.spyOn(listAuthGroupStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
     const error = await sut.handler()
     expect(error).toEqual(HttpResponse.serverError(expectedThrow))
   })
@@ -30,23 +29,23 @@ describe('ListAuthGroupController', () => {
 
 type SutTypes = {
   sut: ListAuthGroupController,
-  listAuthGroupRepositoryStub: ListAuthGroupRepository
+  listAuthGroupStub: ListAuthGroup
 }
 
 function makeSut (): SutTypes {
-  const listAuthGroupRepositoryStub = makeListAuthGroupRepositoryStub()
-  const sut = new ListAuthGroupController(listAuthGroupRepositoryStub)
+  const listAuthGroupStub = makeListAuthGroupStub()
+  const sut = new ListAuthGroupController(listAuthGroupStub)
   return {
     sut,
-    listAuthGroupRepositoryStub
+    listAuthGroupStub
   }
 }
 
-function makeListAuthGroupRepositoryStub (): ListAuthGroupRepository {
-  class ListAuthGroupRepositoryStub implements ListAuthGroupRepository {
+function makeListAuthGroupStub (): ListAuthGroup {
+  class ListAuthGroupStub implements ListAuthGroup {
     async list (): Promise<AuthGroup[]> {
       return mockedAuthGroupList
     }
   }
-  return new ListAuthGroupRepositoryStub()
+  return new ListAuthGroupStub()
 }

@@ -1,9 +1,9 @@
-import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
 import { HttpRequest, HttpResponse } from '../../presentation/protocols/http'
 import { Controller } from '../../presentation/protocols/controller'
+import { ListAuthGroup } from '@auth/entity'
 
 export class ListAuthGroupController implements Controller {
-  constructor (private readonly authGroup: ListAuthGroupRepository) {}
+  constructor (private readonly authGroup: ListAuthGroup) {}
 
   async handler (request?: HttpRequest): Promise<HttpResponse> {
     try {
