@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AuthGroupPrismaRepository } from '@/adapters/gateways/auth-group/auth-group-prisma-repository'
 
-import { prismaMock } from '@/__tests__/database/prisma-client-mock'
+import { prismaMock } from '@/__tests__/frameworks/database/prisma-client-mock'
 import { CreateAuthGroupRepository } from '@/use-case/auth-group/protocols/create-auth-group-repository'
 import { AuthGroupProperties } from '@auth/entity'
 

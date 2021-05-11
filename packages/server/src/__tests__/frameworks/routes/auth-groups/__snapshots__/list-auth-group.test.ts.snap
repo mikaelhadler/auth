@@ -26,12 +26,13 @@ Object {
   "error": Object {
     "message": "Internal server error",
     "stack": "Error: any_repository_error
-    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\routes\\\\auth-groups\\\\list-auth-group.test.ts:9:62)
+    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\frameworks\\\\routes\\\\auth-groups\\\\list-auth-group.test.ts:9:62)
     at Object.asyncJestTest (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\jasmineAsyncInstall.js:106:37)
     at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:45:12
     at new Promise (<anonymous>)
     at mapper (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:28:19)
-    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41",
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)",
   },
 }
 `;

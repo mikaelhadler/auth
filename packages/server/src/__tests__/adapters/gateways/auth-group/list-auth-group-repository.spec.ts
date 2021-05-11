@@ -2,7 +2,7 @@
 import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
 import { AuthGroupPrismaRepository } from '@/adapters/gateways/auth-group/auth-group-prisma-repository'
 
-import { prismaMock } from '@/__tests__/database/prisma-client-mock'
+import { prismaMock } from '@/__tests__/frameworks/database/prisma-client-mock'
 
 describe('ListAuthGroupRepository', () => {
   it('should call findMany', async () => {
