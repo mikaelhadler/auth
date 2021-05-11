@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /api/auth-groups should return HttpResponse Ok on request GET /api/auth-groups 1`] = `
+Array [
+  Object {
+    "activities": Array [
+      Object {
+        "id": "d0d8a425-7665-417d-9f70-0712c4bdae42",
+        "name": "auth-group",
+        "permissions": Array [
+          "readonly",
+          "create",
+          "delete",
+          "update",
+        ],
+      },
+    ],
+    "id": "37f2e75e-4b86-4a99-977e-2aea6d4c782b",
+    "title": "Administrator",
+  },
+]
+`;
+
+exports[`GET /api/auth-groups should return HttpResponse serverError on repository throws 1`] = `
+Object {
+  "error": Object {
+    "message": "Internal server error",
+    "stack": "Error: any_repository_error
+    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\routes\\\\auth-groups\\\\list-auth-group.test.ts:9:62)
+    at Object.asyncJestTest (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\jasmineAsyncInstall.js:106:37)
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:28:19)
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)",
+  },
+}
+`;
