@@ -2,6 +2,7 @@ import { uuid } from './utils'
 
 // not save in database
 export interface Activity {
+  id: uuid,
   name: string,
   permissions: string[]
 }
