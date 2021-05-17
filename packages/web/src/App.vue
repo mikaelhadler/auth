@@ -6,6 +6,21 @@
     <router-link to="/auth-group">AuthGroup</router-link>
   </div>
   <router-view />
+
+  <toast-container />
 </template>
+
+<script lang="ts">
+import ToastContainer from "@/components/toast/ToastContainer.vue";
+
+import { Options, Vue } from "vue-class-component";
+
+@Options({
+  components: {
+    ToastContainer,
+  },
+})
+export default class App extends Vue {}
+</script>
 
 <style src="./assets/base.css"></style>
