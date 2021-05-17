@@ -1,6 +1,6 @@
 import { CalcAge } from "../protocols/methods-utils";
 
-export default class CalcAgeUtil implements CalcAge  {
+export class CalcAgeUtil implements CalcAge {
   age(createdOn: Date, birthday: Date): string {
     const days = createdOn.getDate() - birthday.getDate();
     const hours = createdOn.getHours() - birthday.getHours();

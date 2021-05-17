@@ -11,12 +11,6 @@ import { Options, Vue } from "vue-class-component";
 import DataTable from "@/components/data-table/DataTable.vue";
 import { ColumnsConfig } from "../../components/data-table/protocols/data-table-utils";
 import { AuthGroup } from "@auth/entity";
-import { useStore } from "vuex";
-import { AuthGroupStore } from "./store";
-
-type rootStore = {
-  authGroup: AuthGroupStore;
-};
 
 class AuthGroupTable extends DataTable<AuthGroup> {}
 
@@ -26,19 +20,17 @@ class AuthGroupTable extends DataTable<AuthGroup> {}
   },
 })
 export default class AuthGroupList extends Vue {
-  store = useStore<rootStore>();
-
   columns: ColumnsConfig<AuthGroup> = [
     { title: "#", key: "id" },
     { title: "Meu Titulo", key: "title" },
   ];
 
   get items(): Partial<AuthGroup>[] {
-    return this.store.state.authGroup.authGroupList;
+    return this.$store.state.authGroup.authGroupList;
   }
 
   mounted(): void {
-    this.store.dispatch("authGroup/listAuthGroup");
+    this.$store.dispatch("authGroup/listAuthGroup");
   }
 }
 </script>

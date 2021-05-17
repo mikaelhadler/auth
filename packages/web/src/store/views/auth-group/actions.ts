@@ -1,6 +1,6 @@
 import { ActionTree } from "vuex";
 import { AuthGroupStore } from ".";
-import service from "../services/auth-group-service";
+import service from "@/services/auth-group/auth-group-list.service";
 
 export default <ActionTree<AuthGroupStore, AuthGroupStore>>{
   async listAuthGroup(context) {
