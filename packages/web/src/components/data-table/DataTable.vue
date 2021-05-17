@@ -15,12 +15,22 @@
         <th scope="col" v-for="(header, index) in headers" :key="index">
           {{ header.title }}
         </th>
+        <th v-if="hasActions">actions</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(item, index) in filterdItems" :key="index">
         <td v-for="(header, index) in headers" :key="index">
           {{ item[header.key] }}
+        </td>
+        <td v-if="hasActions">
+          <slot name="actions" :item="item"></slot>
+        </td>
+      </tr>
+      <tr v-if="notItems">
+        <td class="text-center text-nowrap text-muted">
+          <span v-if="search">Nenhum item encontrado para "{{ search }}"!</span>
+          <span v-else>Nenhum item encontrado!</span>
         </td>
       </tr>
     </tbody>
@@ -48,25 +58,32 @@ export default class DataTable<T extends ItemModel> extends Vue {
 
   search = "";
   get headers(): Headers<T>[] {
-    return this.columns.map(
-      (column): Headers<T> => {
-        if (typeof column === "string") {
-          return {
-            title: column,
-            key: column,
-          };
-        }
-        if (typeof column === "object") {
-          return {
-            title: column.title,
-            key: column.key,
-          };
-        }
+    return this.columns.map((column): Headers<T> => {
+      if (typeof column === "string") {
+        return {
+          title: column,
+          key: column,
+        };
       }
-    );
+      if (typeof column === "object") {
+        return {
+          title: column.title,
+          key: column.key,
+        };
+      }
+    });
+  }
+
+  get notItems(): boolean {
+    return !this.filterdItems.length;
+  }
+
+  get hasActions(): boolean {
+    return !!this.$slots.actions;
   }
 
   get filterdItems(): T[] {
+    if (!this.search) return this.items;
     return this.items.filter((item) =>
       this.headers.some((header) =>
         item[header.key]

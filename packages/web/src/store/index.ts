@@ -1,8 +1,9 @@
 import { createStore } from "vuex";
 
+import authGroup from "@/views/auth-group/store";
+
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    authGroup,
+  },
 });
