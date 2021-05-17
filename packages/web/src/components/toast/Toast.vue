@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import BtnClose from "@/components/btn/BtnClose.vue";
-import { CalcAgeUtil } from "@/utils/methods/calc-age-util";
+import { CalcAgeUtil } from "../../utils/methods/calc-age-util";
 
 @Options({
   name: "Toast",
@@ -45,7 +45,6 @@ export default class Toast extends Vue {
 
   get age(): string {
     const util = new CalcAgeUtil();
-    util.age(this.createdOn, this.birthday);
     return util.age(this.createdOn, this.birthday);
   }
 

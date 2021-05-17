@@ -1,4 +1,4 @@
-import CalcAgeUtil from "@/utils/methods/calc-age-util";
+import { CalcAgeUtil } from "@/utils/methods/calc-age-util";
 import { CalcAge } from "@/utils/protocols/methods-utils";
 
 const NOW = '2021-05-16T12:35:47.659Z'
@@ -16,6 +16,7 @@ describe('CalcAgeUtil', () => {
     const createdOn = new Date(NOW)
     const birthday = new Date(NOW)
     birthday.setMinutes(new Date(NOW).getMinutes() - 1)
+    birthday.setSeconds(new Date(NOW).getSeconds() - 20)
     const age = sut.age(createdOn, birthday)
     expect(age).toEqual('a minute ago')
   });
@@ -24,6 +25,7 @@ describe('CalcAgeUtil', () => {
     const createdOn = new Date(NOW)
     const birthday = new Date(NOW)
     birthday.setMinutes(new Date(NOW).getMinutes() - 5)
+    birthday.setSeconds(new Date(NOW).getSeconds() - 20)
     const age = sut.age(createdOn, birthday)
     expect(age).toEqual('5 minutes ago')
   });
@@ -32,6 +34,8 @@ describe('CalcAgeUtil', () => {
     const createdOn = new Date(NOW)
     const birthday = new Date(NOW)
     birthday.setHours(new Date(NOW).getHours() - 1)
+    birthday.setMinutes(new Date(NOW).getMinutes() - 5)
+    birthday.setSeconds(new Date(NOW).getSeconds() - 20)
     const age = sut.age(createdOn, birthday)
     expect(age).toEqual('a hour ago')
   });
@@ -40,6 +44,8 @@ describe('CalcAgeUtil', () => {
     const createdOn = new Date(NOW)
     const birthday = new Date(NOW)
     birthday.setHours(new Date(NOW).getHours() - 5)
+    birthday.setMinutes(new Date(NOW).getMinutes() - 5)
+    birthday.setSeconds(new Date(NOW).getSeconds() - 20)
     const age = sut.age(createdOn, birthday)
     expect(age).toEqual('5 hours ago')
   });
@@ -48,6 +54,9 @@ describe('CalcAgeUtil', () => {
     const createdOn = new Date(NOW)
     const birthday = new Date(NOW)
     birthday.setDate(new Date(NOW).getDate() - 1)
+    birthday.setHours(new Date(NOW).getHours() - 5)
+    birthday.setMinutes(new Date(NOW).getMinutes() - 5)
+    birthday.setSeconds(new Date(NOW).getSeconds() - 20)
     const age = sut.age(createdOn, birthday)
     expect(age).toEqual('a day ago')
   });

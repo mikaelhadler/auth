@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast.vue renders '3 days ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      3 days ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders '5 minutes ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      5 minutes ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders '7 hour ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      7 hours ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders 'a day ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      a day ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders 'a hour ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      a hour ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders 'a minute ago' age 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      a minute ago
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue renders props values when passed 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      just now
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
