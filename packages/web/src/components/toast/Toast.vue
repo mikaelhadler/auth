@@ -12,6 +12,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import BtnClose from "@/components/btn/BtnClose.vue";
+import CalcAgeUtil from "../../utils/methods/calc-age-util";
 
 @Options({
   name: "Toast",
@@ -39,34 +40,13 @@ export default class Toast extends Vue {
     const time = this.createdOn.getTime();
     const validate = time + this.duration * 1000;
     const show = validate > this.now.getTime();
-    console.log(show);
     return show && !this.closed;
   }
 
   get age(): string {
-    const days = this.createdOn.getDate() - this.birthday.getDate();
-    const hours = this.createdOn.getHours() - this.birthday.getHours();
-    const minutes = this.createdOn.getMinutes() - this.birthday.getMinutes();
-
-    if (days) {
-      if (days === 1) {
-        return "one day ago";
-      }
-      return `${days} days ago`;
-    }
-    if (hours) {
-      if (hours === 1) {
-        return "one hour ago";
-      }
-      return `${hours} hours ago`;
-    }
-    if (minutes) {
-      if (minutes === 1) {
-        return "one min ago";
-      }
-      return `${minutes} mins ago`;
-    }
-    return "just now";
+    const util = new CalcAgeUtil();
+    util.age(this.createdOn, this.birthday);
+    return util.age(this.createdOn, this.birthday);
   }
 
   mounted(): void {
