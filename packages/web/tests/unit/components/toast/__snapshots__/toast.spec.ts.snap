@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toast.vue renders '3 days ago' age 1`] = `
+exports[`Toast.vue calcAge renders '3 days ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -28,7 +28,7 @@ exports[`Toast.vue renders '3 days ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders '5 minutes ago' age 1`] = `
+exports[`Toast.vue calcAge renders '5 minutes ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -56,7 +56,7 @@ exports[`Toast.vue renders '5 minutes ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders '7 hour ago' age 1`] = `
+exports[`Toast.vue calcAge renders '7 hour ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -84,7 +84,7 @@ exports[`Toast.vue renders '7 hour ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders 'a day ago' age 1`] = `
+exports[`Toast.vue calcAge renders 'a day ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -112,7 +112,7 @@ exports[`Toast.vue renders 'a day ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders 'a hour ago' age 1`] = `
+exports[`Toast.vue calcAge renders 'a hour ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -140,7 +140,7 @@ exports[`Toast.vue renders 'a hour ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders 'a minute ago' age 1`] = `
+exports[`Toast.vue calcAge renders 'a minute ago' age 1`] = `
 <div
   class="toast show"
   role="alert"
@@ -168,7 +168,91 @@ exports[`Toast.vue renders 'a minute ago' age 1`] = `
 </div>
 `;
 
-exports[`Toast.vue renders props values when passed 1`] = `
+exports[`Toast.vue calcAge renders props values when passed 1`] = `
+<div
+  class="toast show"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      just now
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue show toast should not render class show if createdOn + duration greater than or equal current date 1`] = `
+<div
+  class="toast"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      just now
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue show toast should not render class show on click close button 1`] = `
+<div
+  class="toast"
+  role="alert"
+>
+  <div
+    class="toast-header"
+  >
+    <strong
+      class="me-auto"
+    >
+      any_title
+    </strong>
+    <small
+      class="text-muted"
+    >
+      just now
+    </small>
+    <btn-close-stub />
+  </div>
+  <div
+    class="toast-body"
+  >
+    any_message
+  </div>
+</div>
+`;
+
+exports[`Toast.vue show toast should render class show if createdOn + duration less than current date 1`] = `
 <div
   class="toast show"
   role="alert"

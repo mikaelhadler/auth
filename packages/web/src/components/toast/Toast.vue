@@ -13,6 +13,7 @@
 import { Options, Vue } from "vue-class-component";
 import BtnClose from "@/components/btn/BtnClose.vue";
 import { CalcAgeUtil } from "../../utils/methods/calc-age-util";
+import { ValidityDateUtil } from "../../utils/methods/validity-date-util";
 
 @Options({
   name: "Toast",
@@ -37,9 +38,8 @@ export default class Toast extends Vue {
   closed = false;
 
   get show(): boolean {
-    const time = this.createdOn.getTime();
-    const validate = time + this.duration * 1000;
-    const show = validate > this.now.getTime();
+    const util = new ValidityDateUtil();
+    const show = util.validity(this.createdOn, this.now, this.duration);
     return show && !this.closed;
   }
 
