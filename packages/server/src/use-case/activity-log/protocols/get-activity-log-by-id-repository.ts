@@ -1,5 +1,5 @@
-import { ActivityLog, uuid } from '@auth/entity'
+import { ActivityLog, uuid } from "@auth/domain";
 
 export interface GetActivityLogByIdRepository {
-  getById(activityId: uuid): Promise<ActivityLog>
+  getById(activityId: uuid): Promise<ActivityLog>;
 }

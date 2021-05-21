@@ -1,5 +1,5 @@
-import { AccountModel } from '@auth/entity'
+import { AccountModel } from "@auth/domain";
 
 export interface CancelAccountByIdRepository {
-  cancel(accountId): Promise<AccountModel>
+  cancel(accountId): Promise<AccountModel>;
 }

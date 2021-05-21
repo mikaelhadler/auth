@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" :class="{ show: show }" role="alert">
+  <div class="toast" :class="{ show: show, hide: !show }" role="alert">
     <div class="toast-header">
       <strong class="me-auto">{{ title }}</strong>
       <small class="text-muted">{{ age }}</small>

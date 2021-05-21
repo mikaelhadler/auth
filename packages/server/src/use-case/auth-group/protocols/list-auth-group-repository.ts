@@ -1,5 +1,5 @@
-import { AuthGroup } from '@auth/entity'
+import { AuthGroup } from "@auth/domain";
 
 export interface ListAuthGroupRepository {
-  list(): Promise<AuthGroup[]>
+  list(): Promise<AuthGroup[]>;
 }

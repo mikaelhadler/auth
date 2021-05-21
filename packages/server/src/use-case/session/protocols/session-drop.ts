@@ -1,5 +1,5 @@
-import { uuid } from '@auth/entity'
+import { uuid } from "@auth/domain";
 
 export interface SessionDropRepository {
-  drop(sessionId: uuid): Promise<void>
+  drop(sessionId: uuid): Promise<void>;
 }

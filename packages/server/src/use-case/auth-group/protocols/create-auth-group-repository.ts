@@ -1,5 +1,5 @@
-import { AuthGroup, AuthGroupProperties } from '@auth/entity'
+import { AuthGroup, AuthGroupProperties } from "@auth/domain";
 
 export interface CreateAuthGroupRepository {
-  create(authGroup: AuthGroupProperties): Promise<AuthGroup>
+  create(authGroup: AuthGroupProperties): Promise<AuthGroup>;
 }

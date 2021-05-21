@@ -1,5 +1,5 @@
-import { AuthGroup, uuid } from '@auth/entity'
+import { AuthGroup, uuid } from "@auth/domain";
 
 export interface RemoveAuthGroupRepository {
-  remove(authGroupId: uuid): Promise<AuthGroup>
+  remove(authGroupId: uuid): Promise<AuthGroup>;
 }

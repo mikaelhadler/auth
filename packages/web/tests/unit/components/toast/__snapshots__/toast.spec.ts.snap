@@ -198,7 +198,7 @@ exports[`Toast.vue calcAge renders props values when passed 1`] = `
 
 exports[`Toast.vue show toast should not render class show if createdOn + duration greater than or equal current date 1`] = `
 <div
-  class="toast"
+  class="toast hide"
   role="alert"
 >
   <div
@@ -226,7 +226,7 @@ exports[`Toast.vue show toast should not render class show if createdOn + durati
 
 exports[`Toast.vue show toast should not render class show on click close button 1`] = `
 <div
-  class="toast"
+  class="toast hide"
   role="alert"
 >
   <div

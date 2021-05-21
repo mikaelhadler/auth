@@ -1,5 +1,5 @@
-import { AuthGroup, AuthGroupUpdates, uuid } from '@auth/entity'
+import { AuthGroup, AuthGroupUpdates, uuid } from "@auth/domain";
 
 export interface UpdateAuthGroupRepository {
-  update (authGroupId: uuid, authGroup: AuthGroupUpdates): Promise<AuthGroup>
+  update(authGroupId: uuid, authGroup: AuthGroupUpdates): Promise<AuthGroup>;
 }

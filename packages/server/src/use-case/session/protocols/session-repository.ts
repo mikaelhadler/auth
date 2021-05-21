@@ -1,10 +1,10 @@
-import { Session, uuid } from '@auth/entity'
+import { Session, uuid } from "@auth/domain";
 
-export type SessionFilters = Partial<Session>
+export type SessionFilters = Partial<Session>;
 export interface SessionListRepository {
-  getSessionList(options?: SessionFilters): Promise<Session[]>
+  getSessionList(options?: SessionFilters): Promise<Session[]>;
 }
 
 export interface SessionListByAuthenticationRepository {
-  getSessionsByAuthenticationId(authenticationId: uuid):Promise<Session[]>
+  getSessionsByAuthenticationId(authenticationId: uuid): Promise<Session[]>;
 }

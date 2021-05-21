@@ -1,5 +1,5 @@
-import { Session, uuid } from '@auth/entity'
+import { Session, uuid } from "@auth/domain";
 
 export interface SessionByIdRepository {
-  getById(sessionId: uuid): Promise<Session>
+  getById(sessionId: uuid): Promise<Session>;
 }

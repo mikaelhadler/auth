@@ -4,7 +4,7 @@
     style="z-index: 5"
   >
     <toast
-      v-for="index of 2"
+      v-for="index of 7"
       :key="index"
       title="Bootstrap"
       message="See? Just like this."

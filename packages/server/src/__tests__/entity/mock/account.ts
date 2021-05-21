@@ -1,7 +1,7 @@
-import { AccountModel, AccountStatusEnum } from '@auth/entity'
-import faker from 'faker'
+import { AccountModel, AccountStatusEnum } from "@auth/domain";
+import faker from "faker";
 
-export function mockAccount (): AccountModel {
+export function mockAccount(): AccountModel {
   return {
     name: faker.name.firstName(),
     active: true,
@@ -10,6 +10,6 @@ export function mockAccount (): AccountModel {
     phone: faker.phone.phoneNumber(),
     username: faker.internet.userName(),
     status: AccountStatusEnum.APPROVED,
-    address: null
-  }
+    address: null,
+  };
 }

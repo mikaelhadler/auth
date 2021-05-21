@@ -2,7 +2,7 @@ import actions from "./actions";
 import mutations from "./mutations";
 import getters from "./getters";
 
-import { AuthGroup } from "@auth/entity";
+import { AuthGroup } from "@auth/domain";
 
 export interface AuthGroupStore {
   authGroupList: AuthGroup[];

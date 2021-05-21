@@ -1,4 +1,4 @@
-import { AccountModel, uuid } from '@auth/entity'
+import { AccountModel, uuid } from "@auth/domain";
 export interface GetAccountByIdRepository {
-  getAccountById(accountId: uuid): Promise<AccountModel>
+  getAccountById(accountId: uuid): Promise<AccountModel>;
 }
