@@ -1,5 +1,5 @@
-import { ActivityLog, ListActivityLogByAccount, uuid } from '@auth/entity'
-import { ListActivityLogByAccountRepository } from '@auth/use-case'
+import { ActivityLog, ListActivityLogByAccount, uuid } from "@auth/entity";
+import { ListActivityLogByAccountRepository } from "@auth/use-case";
 
 export class DbListActivityLogByAccount implements ListActivityLogByAccount {
   constructor(
@@ -9,7 +9,7 @@ export class DbListActivityLogByAccount implements ListActivityLogByAccount {
   async listByAccountId(accountId: uuid): Promise<ActivityLog[]> {
     const activityLogList = await this.activityLogRepo.listByAccountId(
       accountId
-    )
-    return activityLogList
+    );
+    return activityLogList;
   }
 }

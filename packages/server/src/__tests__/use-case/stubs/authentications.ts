@@ -1,31 +1,33 @@
-import { Authentication, AuthenticationStatusEnum, uuid } from '@auth/entity'
+import { Authentication, AuthenticationStatusEnum, uuid } from "@auth/entity";
 import {
   AuthenticationByAccountRepository,
-  AuthenticationUpdateStatusRepository
-} from '@auth/use-case'
+  AuthenticationUpdateStatusRepository,
+} from "@auth/use-case";
 
-import { mockAuthentication } from '@/__tests__/entity/mock/authentications'
+import { mockAuthentication } from "@/__tests__/entity/mock/authentications";
 
-export const mockedAuthentication = mockAuthentication()
+export const mockedAuthentication = mockAuthentication();
 export function makeAuthenticationByAccountStub(): AuthenticationByAccountRepository {
   class AuthenticationByAccountStub
-  implements AuthenticationByAccountRepository {
+    implements AuthenticationByAccountRepository
+  {
     async getByAccountId(accountId: uuid): Promise<Authentication> {
-      return mockedAuthentication
+      return mockedAuthentication;
     }
   }
-  return new AuthenticationByAccountStub()
+  return new AuthenticationByAccountStub();
 }
 
 export function makeAuthenticationUpdateStatusRepositoryStub(): AuthenticationUpdateStatusRepository {
   class AuthenticationUpdateStatusRepositoryStub
-  implements AuthenticationUpdateStatusRepository {
+    implements AuthenticationUpdateStatusRepository
+  {
     async updateStatus(
       authenticationId: uuid,
       status: AuthenticationStatusEnum
     ): Promise<Authentication> {
-      return mockedAuthentication
+      return mockedAuthentication;
     }
   }
-  return new AuthenticationUpdateStatusRepositoryStub()
+  return new AuthenticationUpdateStatusRepositoryStub();
 }
