@@ -1,8 +1,8 @@
-import { shallowMount } from "@vue/test-utils";
-import DataTable from "@/components/data-table/DataTable.vue";
+// import { shallowMount } from "@vue/test-utils";
+// import DataTable from "@/components/data-table/DataTable.vue";
 
 describe("DataTable.vue", () => {
-  it.todo('smock tests');
+  it.todo("smock tests");
   // it("renders props.headers and items values when passed", () => {
   //   const { wrapper, items, headers } = makeWrapper();
   //   expect(wrapper.text()).toMatch(headers[0].title);
@@ -25,51 +25,51 @@ describe("DataTable.vue", () => {
   // });
 });
 
-function makeWrapper() {
-  const headers = makeHeaders();
-  const items = makeItems();
-  const wrapper = shallowMount(DataTable, {
-    props: { headers, items },
-  });
+// function makeWrapper() {
+//   const headers = makeHeaders();
+//   const items = makeItems();
+//   const wrapper = shallowMount(DataTable, {
+//     props: { headers, items },
+//   });
 
-  return {
-    headers,
-    items,
-    wrapper,
-  };
-}
+//   return {
+//     headers,
+//     items,
+//     wrapper,
+//   };
+// }
 
-type MyMockTest = {
-  myKey: string;
-  myKey2: string;
-};
+// type MyMockTest = {
+//   myKey: string;
+//   myKey2: string;
+// };
 
-function makeItems(): MyMockTest[] {
-  return [
-    {
-      myKey: "any-value",
-      myKey2: "any-value-2",
-    },
-    {
-      myKey: "filtered",
-      myKey2: "filtered-2",
-    },
-  ];
-}
+// function makeItems(): MyMockTest[] {
+//   return [
+//     {
+//       myKey: "any-value",
+//       myKey2: "any-value-2",
+//     },
+//     {
+//       myKey: "filtered",
+//       myKey2: "filtered-2",
+//     },
+//   ];
+// }
 
-interface HeaderDataTable {
-  title: string;
-  key: string;
-}
-function makeHeaders(): HeaderDataTable[] {
-  return [
-    {
-      title: "Column Label",
-      key: "myKey",
-    },
-    {
-      title: "Column Label 2",
-      key: "myKey2",
-    },
-  ];
-}
+// interface HeaderDataTable {
+//   title: string;
+//   key: string;
+// }
+// function makeHeaders(): HeaderDataTable[] {
+//   return [
+//     {
+//       title: "Column Label",
+//       key: "myKey",
+//     },
+//     {
+//       title: "Column Label 2",
+//       key: "myKey2",
+//     },
+//   ];
+// }

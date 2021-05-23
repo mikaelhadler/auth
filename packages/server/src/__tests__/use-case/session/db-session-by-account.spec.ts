@@ -1,8 +1,17 @@
-import { AuthenticationByAccountRepository } from '@/use-case/session/protocols/authentication-by-account-repository'
-import { SessionListByAuthenticationRepository } from '@/use-case/session/protocols/session-repository'
+import {
+  AuthenticationByAccountRepository,
+  SessionListByAuthenticationRepository
+} from '@auth/use-case'
+
 import { DbSessionByAccount } from '@/use-case/session/db-session-by-account'
-import { makeAuthenticationByAccountStub, mockedAuthentication } from '../stubs/authentications'
-import { makeSessionListByAccountRepositoryStub, mockedReturnGetSessionListRepository } from '../stubs/sessions'
+import {
+  makeAuthenticationByAccountStub,
+  mockedAuthentication
+} from '../stubs/authentications'
+import {
+  makeSessionListByAccountRepositoryStub,
+  mockedReturnGetSessionListRepository
+} from '../stubs/sessions'
 
 describe('SessionByAccount', () => {
   it('should call get authentication with account_id', async () => {
@@ -18,7 +27,9 @@ describe('SessionByAccount', () => {
     const expectedThrow = new Error('any_get_authentication_by_account')
     const accountId = '1a-1a-1a-1a'
     const { sut, authenticationByAccountStub } = makeSut()
-    jest.spyOn(authenticationByAccountStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(authenticationByAccountStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.getByAccountId(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -27,7 +38,9 @@ describe('SessionByAccount', () => {
     const expectedThrow = new Error('account not found')
     const accountId = '1a-1a-1a-1a'
     const { sut, authenticationByAccountStub } = makeSut()
-    jest.spyOn(authenticationByAccountStub, functionName).mockReturnValueOnce(Promise.resolve(null))
+    jest
+      .spyOn(authenticationByAccountStub, functionName)
+      .mockReturnValueOnce(Promise.resolve(null))
     const promise = sut.getByAccountId(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -45,7 +58,9 @@ describe('SessionByAccount', () => {
     const expectedThrow = new Error('any_get_authentication_by_account')
     const accountId = '1a-1a-1a-1a'
     const { sut, sessionListByAuthenticationStub } = makeSut()
-    jest.spyOn(sessionListByAuthenticationStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(sessionListByAuthenticationStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.getByAccountId(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -59,15 +74,19 @@ describe('SessionByAccount', () => {
 })
 
 type SutTypes = {
-  sut: DbSessionByAccount,
-  authenticationByAccountStub: AuthenticationByAccountRepository,
+  sut: DbSessionByAccount
+  authenticationByAccountStub: AuthenticationByAccountRepository
   sessionListByAuthenticationStub: SessionListByAuthenticationRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const authenticationByAccountStub = makeAuthenticationByAccountStub()
-  const sessionListByAuthenticationStub = makeSessionListByAccountRepositoryStub()
-  const sut = new DbSessionByAccount(authenticationByAccountStub, sessionListByAuthenticationStub)
+  const sessionListByAuthenticationStub =
+    makeSessionListByAccountRepositoryStub()
+  const sut = new DbSessionByAccount(
+    authenticationByAccountStub,
+    sessionListByAuthenticationStub
+  )
 
   return {
     sut,

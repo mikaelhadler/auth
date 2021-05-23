@@ -3,18 +3,20 @@ import {
   AuthGroup,
   AuthGroupModel,
   AuthGroupProperties,
-  uuid,
-} from "@auth/domain";
-import { ListAuthGroupRepository } from "@/use-case/auth-group/protocols/list-auth-group-repository";
+  uuid
+} from '@auth/entity'
+import {
+  ListAuthGroupRepository,
+  CreateAuthGroupRepository
+} from '@auth/use-case'
 
 import {
   as_activities,
   as_auth_groups,
   as_auth_groups_activities,
-  PrismaClient,
-} from "@prisma/client";
-import prisma from "@/frameworks/database/prisma-client-helper";
-import { CreateAuthGroupRepository } from "@/use-case/auth-group/protocols/create-auth-group-repository";
+  PrismaClient
+} from '@prisma/client'
+import prisma from '@/frameworks/database/prisma-client-helper'
 
 type FullAuthGroup = as_auth_groups & {
   activities: (as_auth_groups_activities & {
@@ -24,8 +26,7 @@ type FullAuthGroup = as_auth_groups & {
 
 // TODO - make tests (jest-mock-extended | prisma-test-utils)
 export class AuthGroupPrismaRepository
-  implements ListAuthGroupRepository, CreateAuthGroupRepository
-{
+implements ListAuthGroupRepository, CreateAuthGroupRepository {
   async create(authGroup: AuthGroupProperties): Promise<AuthGroup> {
     const created = await prisma.as_auth_groups.create({
       data: {
@@ -33,23 +34,23 @@ export class AuthGroupPrismaRepository
         activities: {
           createMany: {
             data: authGroup.activities.map((activity) => ({
-              activity_id: activity.id,
-            })),
-          },
-        },
-      },
-    });
-    return created;
+              activity_id: activity.id
+            }))
+          }
+        }
+      }
+    })
+    return created
   }
 
   async list(): Promise<AuthGroupModel[]> {
     const response = await prisma.as_auth_groups.findMany({
       include: {
         activities: {
-          include: { activity: true },
-        },
-      },
-    });
+          include: { activity: true }
+        }
+      }
+    })
     return response.map((item: FullAuthGroup): AuthGroupModel => {
       return new AuthGroupModel({
         id: item.id,
@@ -58,10 +59,10 @@ export class AuthGroupPrismaRepository
           ({ activity }): Activity => ({
             id: <uuid>activity.id,
             name: activity.name,
-            permissions: activity.permissions,
+            permissions: activity.permissions
           })
-        ),
-      });
-    });
+        )
+      })
+    })
   }
 }

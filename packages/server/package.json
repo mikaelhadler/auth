@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev -r tsconfig-paths/register  --respawn --transpile-only --no-notify --ignore-watch node_modules src/index.ts",
+    "clear": "rm -rf dist",
+    "build": "npm run clear && npx tsc -p tsconfig-build.json",
+    "lint": "npx eslint src/**/*.ts",
     "test": "jest --passWithNoTests --noStackTrace --runInBand --detectOpenHandles",
     "test:silent": "npm run test -- --silent",
     "test:staged": "npm run test:silent -- --findRelatedTests",
     "test:unit": "npm run test -- --watch -c jest-unit-config.js",
     "test:integration": "npm run test -- --watch -c jest-integration-config.js",
-    "test:ci": "npm run test:silent -- --coverage",
-    "clear": "rm -rf dist",
-    "build": "npm run clear && npx tsc -p tsconfig-build.json"
+    "test:ci": "npm run test:silent -- --coverage"
   },
   "dependencies": {
-    "@auth/domain": "*",
+    "@auth/entity": "*",
+    "@auth/use-case": "*",
     "@prisma/client": "^2.21.2",
     "express": "^4.17.1",
     "ts-node-dev": "^1.1.6"

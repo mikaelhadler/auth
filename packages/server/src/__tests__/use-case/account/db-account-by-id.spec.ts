@@ -1,6 +1,9 @@
 import { DbAccountById } from '@/use-case/account/db-account-by-id'
-import { GetAccountByIdRepository } from '@/use-case/account/protocols/account-by-id-repository'
-import { makeGetAccountByIdRepositoryStub, mockedAccount } from '../stubs/account'
+import { GetAccountByIdRepository } from '@auth/use-case'
+import {
+  makeGetAccountByIdRepositoryStub,
+  mockedAccount
+} from '../stubs/account'
 
 describe('DbAccountById', () => {
   it('should call GetAccountsByIdRepository with correct values', async () => {
@@ -16,7 +19,9 @@ describe('DbAccountById', () => {
     const functionName = 'getAccountById'
     const accountId = '1a-1a-1a-1a'
     const expectedThrow = new Error('any_repo_error')
-    jest.spyOn(accountByIdStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(accountByIdStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.getById(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -29,11 +34,11 @@ describe('DbAccountById', () => {
 })
 
 type SutTypes = {
-  sut: DbAccountById,
+  sut: DbAccountById
   accountByIdStub: GetAccountByIdRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const accountByIdStub = makeGetAccountByIdRepositoryStub()
   const sut = new DbAccountById(accountByIdStub)
 

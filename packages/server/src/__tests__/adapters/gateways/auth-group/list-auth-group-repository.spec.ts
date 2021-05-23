@@ -1,8 +1,19 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
+import { ListAuthGroupRepository } from '@auth/use-case'
 import { AuthGroupPrismaRepository } from '@/adapters/gateways/auth-group/auth-group-prisma-repository'
 
 import { prismaMock } from '@/__tests__/frameworks/database/prisma-client-mock'
+import {
+  as_auth_groups,
+  as_auth_groups_activities,
+  as_activities
+} from '@prisma/client'
+
+type FullAuthGroup = as_auth_groups & {
+  activities: (as_auth_groups_activities & {
+    activity: as_activities
+  })[]
+}
 
 describe('ListAuthGroupRepository', () => {
   it('should call findMany', async () => {
@@ -15,18 +26,15 @@ describe('ListAuthGroupRepository', () => {
           {
             id: 'd0d8a425-7665-417d-9f70-0712c4bdae42',
             name: 'auth-group',
-            permissions: [
-              'readonly',
-              'create',
-              'delete',
-              'update'
-            ]
+            permissions: ['readonly', 'create', 'delete', 'update']
           }
         ]
       }
     ]
     // @ts-ignore
-    prismaMock.as_auth_groups.findMany.mockReturnValueOnce(mockAuthGroupPrismaRepository)
+    prismaMock.as_auth_groups.findMany.mockReturnValueOnce(
+      mockAuthGroupPrismaRepository
+    )
     const list = await sut.list()
     expect(list).toEqual(expectedResponse)
   })
@@ -36,7 +44,7 @@ type SutTypes = {
   sut: ListAuthGroupRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const sut = new AuthGroupPrismaRepository()
   return { sut }
 }

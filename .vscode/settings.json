@@ -11,11 +11,15 @@
     "tailwindcss",
     "zipcode"
   ],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "eslint.validate": ["javascript"]
 }

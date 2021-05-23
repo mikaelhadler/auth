@@ -1,49 +1,52 @@
-import { AuthGroupProperties, AuthGroup, uuid } from "@auth/domain";
-import { CreateAuthGroupRepository } from "@/use-case/auth-group/protocols/create-auth-group-repository";
-import { GetAuthGroupRepository } from "@/use-case/auth-group/protocols/get-auth-group-repository";
-import { ListAuthGroupRepository } from "@/use-case/auth-group/protocols/list-auth-group-repository";
-import { RemoveAuthGroupRepository } from "@/use-case/auth-group/protocols/remove-auth-group-repository";
-import { UpdateAuthGroupRepository } from "@/use-case/auth-group/protocols/update-auth-group-repository";
+import { AuthGroupProperties, AuthGroup, uuid } from '@auth/entity'
+import {
+  CreateAuthGroupRepository,
+  GetAuthGroupRepository,
+  ListAuthGroupRepository,
+  RemoveAuthGroupRepository,
+  UpdateAuthGroupRepository
+} from '@auth/use-case'
+
 import {
   mockAuthGroup,
-  mockAuthGroupProperties,
-} from "@/__tests__/entity/mock/auth-group";
+  mockAuthGroupProperties
+} from '@/__tests__/entity/mock/auth-group'
 
-export const mockedAuthGroup = mockAuthGroup();
+export const mockedAuthGroup = mockAuthGroup()
 export const mockedAuthGroupList = [
   mockAuthGroup(),
   mockAuthGroup(),
   mockAuthGroup(),
   mockAuthGroup(),
-  mockAuthGroup(),
-];
-export const mockedAuthGroupProperties = mockAuthGroupProperties();
+  mockAuthGroup()
+]
+export const mockedAuthGroupProperties = mockAuthGroupProperties()
 
 export function makeCreateAuthGroupRepositoryStub(): CreateAuthGroupRepository {
   class CreateAuthGroupRepositoryStub implements CreateAuthGroupRepository {
     async create(authGroup: AuthGroupProperties): Promise<AuthGroup> {
-      return mockedAuthGroup;
+      return mockedAuthGroup
     }
   }
-  return new CreateAuthGroupRepositoryStub();
+  return new CreateAuthGroupRepositoryStub()
 }
 
 export function makeListAuthGroupStub(): ListAuthGroupRepository {
   class ListAuthGroupRepositoryStub implements ListAuthGroupRepository {
     async list(): Promise<AuthGroup[]> {
-      return [...mockedAuthGroupList];
+      return [...mockedAuthGroupList]
     }
   }
-  return new ListAuthGroupRepositoryStub();
+  return new ListAuthGroupRepositoryStub()
 }
 
 export function makeGetAuthGroupStub(): GetAuthGroupRepository {
   class GetAuthGroupRepositoryStub implements GetAuthGroupRepository {
     async get(authGroupId: uuid): Promise<AuthGroup> {
-      return Object.assign({}, mockedAuthGroup);
+      return Object.assign({}, mockedAuthGroup)
     }
   }
-  return new GetAuthGroupRepositoryStub();
+  return new GetAuthGroupRepositoryStub()
 }
 
 export function makeUpdateAuthGroupStub(): UpdateAuthGroupRepository {
@@ -52,17 +55,17 @@ export function makeUpdateAuthGroupStub(): UpdateAuthGroupRepository {
       authGroupId: uuid,
       authGroup: Partial<AuthGroup>
     ): Promise<AuthGroup> {
-      return mockedAuthGroup;
+      return mockedAuthGroup
     }
   }
-  return new UpdateAuthGroupRepositoryStub();
+  return new UpdateAuthGroupRepositoryStub()
 }
 
 export function makeRemoveAuthGroupRepositoryStub(): RemoveAuthGroupRepository {
   class RemoveAuthGroupRepositoryStub implements RemoveAuthGroupRepository {
     async remove(authGroupId: uuid): Promise<AuthGroup> {
-      return mockedAuthGroup;
+      return mockedAuthGroup
     }
   }
-  return new RemoveAuthGroupRepositoryStub();
+  return new RemoveAuthGroupRepositoryStub()
 }

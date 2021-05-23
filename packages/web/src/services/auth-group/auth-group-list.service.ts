@@ -1,5 +1,5 @@
-import { AuthGroup } from "@auth/domain";
-import { client } from "@/config/http";
+// import { AuthGroup } from "@auth/entity";
+// import { client } from "@/config/http";
 
 // export default {
 //   async authGroupList(): Promise<AuthGroup[]> {
@@ -8,4 +8,4 @@ import { client } from "@/config/http";
 //   },
 // };
 
-export default class AuthGroupService implements AuthGroupRepository {}
+// export default class AuthGroupService implements AuthGroupRepository {}

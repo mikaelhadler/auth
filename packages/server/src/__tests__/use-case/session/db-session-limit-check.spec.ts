@@ -1,7 +1,13 @@
-import { AuthenticationByAccountRepository } from '@/use-case/session/protocols/authentication-by-account-repository'
-import { SessionCountByAuthenticationRepository } from '@/use-case/session/protocols/session-count-by-authentication-repository'
+import {
+  AuthenticationByAccountRepository,
+  SessionCountByAuthenticationRepository
+} from '@auth/use-case'
+
 import { DbSessionLimitCheckByAccount } from '@/use-case/session/db-session-limit-check'
-import { makeAuthenticationByAccountStub, mockedAuthentication } from '../stubs/authentications'
+import {
+  makeAuthenticationByAccountStub,
+  mockedAuthentication
+} from '../stubs/authentications'
 import { makeSessionCountByAuthenticationRepository } from '../stubs/sessions'
 
 describe('DbSessionLimitCheckByAccount', () => {
@@ -18,7 +24,9 @@ describe('DbSessionLimitCheckByAccount', () => {
     const functionName = 'getByAccountId'
     const expectedThrow = new Error('any_get_authentication_by_account')
     const { sut, authenticationByAccountStub } = makeSut()
-    jest.spyOn(authenticationByAccountStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(authenticationByAccountStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.check(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -27,7 +35,9 @@ describe('DbSessionLimitCheckByAccount', () => {
     const functionName = 'getByAccountId'
     const expectedThrow = new Error('account not found')
     const { sut, authenticationByAccountStub } = makeSut()
-    jest.spyOn(authenticationByAccountStub, functionName).mockReturnValueOnce(Promise.resolve(null))
+    jest
+      .spyOn(authenticationByAccountStub, functionName)
+      .mockReturnValueOnce(Promise.resolve(null))
     const promise = sut.check(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -44,7 +54,9 @@ describe('DbSessionLimitCheckByAccount', () => {
     const functionName = 'count'
     const expectedThrow = new Error('any_session_count_error')
     const { sut, sessionCountByAuthenticationStub } = makeSut()
-    jest.spyOn(sessionCountByAuthenticationStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(sessionCountByAuthenticationStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.check(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -52,7 +64,11 @@ describe('DbSessionLimitCheckByAccount', () => {
     const accountId = '1a-1a-1a-1a'
     const functionName = 'count'
     const { sut, sessionCountByAuthenticationStub } = makeSut()
-    jest.spyOn(sessionCountByAuthenticationStub, functionName).mockReturnValueOnce(Promise.resolve(mockedAuthentication.sessionLimit + 1))
+    jest
+      .spyOn(sessionCountByAuthenticationStub, functionName)
+      .mockReturnValueOnce(
+        Promise.resolve(mockedAuthentication.sessionLimit + 1)
+      )
     const response = await sut.check(accountId)
     expect(response).toBeTruthy()
   })
@@ -60,22 +76,28 @@ describe('DbSessionLimitCheckByAccount', () => {
     const accountId = '1a-1a-1a-1a'
     const functionName = 'count'
     const { sut, sessionCountByAuthenticationStub } = makeSut()
-    jest.spyOn(sessionCountByAuthenticationStub, functionName).mockReturnValueOnce(Promise.resolve(mockedAuthentication.sessionLimit))
+    jest
+      .spyOn(sessionCountByAuthenticationStub, functionName)
+      .mockReturnValueOnce(Promise.resolve(mockedAuthentication.sessionLimit))
     const response = await sut.check(accountId)
     expect(response).toBeFalsy()
   })
 })
 
 type SutTypes = {
-  sut: DbSessionLimitCheckByAccount,
-  authenticationByAccountStub: AuthenticationByAccountRepository,
+  sut: DbSessionLimitCheckByAccount
+  authenticationByAccountStub: AuthenticationByAccountRepository
   sessionCountByAuthenticationStub: SessionCountByAuthenticationRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const authenticationByAccountStub = makeAuthenticationByAccountStub()
-  const sessionCountByAuthenticationStub = makeSessionCountByAuthenticationRepository()
-  const sut = new DbSessionLimitCheckByAccount(authenticationByAccountStub, sessionCountByAuthenticationStub)
+  const sessionCountByAuthenticationStub =
+    makeSessionCountByAuthenticationRepository()
+  const sut = new DbSessionLimitCheckByAccount(
+    authenticationByAccountStub,
+    sessionCountByAuthenticationStub
+  )
   return {
     sut,
     authenticationByAccountStub,

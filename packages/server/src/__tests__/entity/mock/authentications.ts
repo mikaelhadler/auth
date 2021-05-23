@@ -1,11 +1,11 @@
-import { Authentication, AuthenticationStatusEnum, uuid } from "@auth/domain";
-import faker from "faker";
+import { Authentication, AuthenticationStatusEnum, uuid } from '@auth/entity'
+import faker from 'faker'
 
-const SESSION_LIMIT = 3;
+const SESSION_LIMIT = 3
 export function mockAuthentication(): Authentication {
-  const authGroup = [];
+  const authGroup = []
   for (let index = 0; index < 3; index++) {
-    authGroup.push(faker.datatype.uuid());
+    authGroup.push(faker.datatype.uuid())
   }
   return {
     id: <uuid>faker.datatype.uuid(),
@@ -17,6 +17,6 @@ export function mockAuthentication(): Authentication {
     active: true,
     authGroup,
     createdAt: faker.date.past(),
-    updatedAt: faker.date.recent(),
-  };
+    updatedAt: faker.date.recent()
+  }
 }

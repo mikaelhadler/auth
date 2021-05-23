@@ -1,6 +1,9 @@
 import { DbListAccountByAuthGroup } from '@/use-case/account/db-list-account-by-auth-group'
-import { AccountsByGroupRepository } from '@/use-case/account/protocols/account-by-auth-group-repository'
-import { makeAccountsByGroupRepositoryStub, mockedAccountList } from '../stubs/account'
+import { AccountsByGroupRepository } from '@auth/use-case'
+import {
+  makeAccountsByGroupRepositoryStub,
+  mockedAccountList
+} from '../stubs/account'
 
 describe('DbListAccountByAuthGroup', () => {
   it('should call AccountsByGroupRepository with correct values', async () => {
@@ -16,7 +19,9 @@ describe('DbListAccountByAuthGroup', () => {
     const functionName = 'getAccountByGroup'
     const authGroupId = 'a1-a1-a1-a1'
     const expectedThrow = new Error('any_accountByGroupError')
-    jest.spyOn(listAccountsByGroup, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(listAccountsByGroup, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.listAccountByAuthGroupId(authGroupId)
     expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -29,11 +34,11 @@ describe('DbListAccountByAuthGroup', () => {
 })
 
 type SutTypes = {
-  sut: DbListAccountByAuthGroup,
+  sut: DbListAccountByAuthGroup
   listAccountsByGroup: AccountsByGroupRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const listAccountsByGroup = makeAccountsByGroupRepositoryStub()
   const sut = new DbListAccountByAuthGroup(listAccountsByGroup)
 

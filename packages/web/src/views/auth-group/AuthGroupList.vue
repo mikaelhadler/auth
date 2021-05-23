@@ -10,7 +10,7 @@
 import { Options, Vue } from "vue-class-component";
 import DataTable from "@/components/data-table/DataTable.vue";
 import { ColumnsConfig } from "../../components/data-table/protocols/data-table-utils";
-import { AuthGroup } from "@auth/domain";
+import { AuthGroup } from "@auth/entity";
 
 class AuthGroupTable extends DataTable<AuthGroup> {}
 

@@ -1,10 +1,12 @@
-import { AuthenticationStatusEnum, SessionDrop, uuid } from "@auth/domain";
-import { AuthenticationByAccountRepository } from "./protocols/authentication-by-account-repository";
-import { AuthenticationUpdateStatusRepository } from "./protocols/authentication-update-status-repository";
-import { SessionCountByAuthenticationRepository } from "./protocols/session-count-by-authentication-repository";
-import { SessionDropRepository } from "./protocols/session-drop";
+import { AuthenticationStatusEnum, SessionDrop, uuid } from '@auth/entity'
+import {
+  AuthenticationByAccountRepository,
+  AuthenticationUpdateStatusRepository,
+  SessionCountByAuthenticationRepository,
+  SessionDropRepository
+} from '@auth/use-case'
 
-const JUST_ONE_SESSION = 1;
+const JUST_ONE_SESSION = 1
 export class DbSessionDrop implements SessionDrop {
   constructor(
     private readonly authentication: AuthenticationByAccountRepository,
@@ -14,16 +16,16 @@ export class DbSessionDrop implements SessionDrop {
   ) {}
 
   async drop(sessionId: uuid, accountId: uuid): Promise<void> {
-    const authentication = await this.authentication.getByAccountId(accountId);
-    if (!authentication) throw new Error("account not found");
-    const sessionCount = await this.sessionCount.count(authentication.id);
+    const authentication = await this.authentication.getByAccountId(accountId)
+    if (!authentication) throw new Error('account not found')
+    const sessionCount = await this.sessionCount.count(authentication.id)
     if (sessionCount === JUST_ONE_SESSION) {
       await this.authenticationUpdateStatus.updateStatus(
         authentication.id,
         AuthenticationStatusEnum.Offline
-      );
+      )
     }
-    await this.session.drop(sessionId);
-    return null;
+    await this.session.drop(sessionId)
+    return null
   }
 }

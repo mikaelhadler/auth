@@ -1,5 +1,5 @@
 import { DbListActivityLogByAccount } from '@/use-case/activity-log/db-list-activity-log-by-account'
-import { ListActivityLogByAccountRepository } from '@/use-case/activity-log/protocols/list-activity-log-by-account-repository'
+import { ListActivityLogByAccountRepository } from '@auth/use-case'
 import { mockedActivityLogList } from '@/__tests__/entity/mock/activity-log'
 import { makeListActivityLogByAccountRepositoryStub } from '../stubs/activity-log'
 
@@ -17,7 +17,9 @@ describe('DbListActivityLogByAccount', () => {
     const functionName = 'listByAccountId'
     const accountId = 'a1-a1-a1-a1'
     const expectedThrow = new Error('any-list-activity-repo-error')
-    jest.spyOn(listActivityLogByAccountStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(listActivityLogByAccountStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.listByAccountId(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -31,12 +33,13 @@ describe('DbListActivityLogByAccount', () => {
 })
 
 type SutTypes = {
-  sut: DbListActivityLogByAccount,
+  sut: DbListActivityLogByAccount
   listActivityLogByAccountStub: ListActivityLogByAccountRepository
 }
 
-function makeSut (): SutTypes {
-  const listActivityLogByAccountStub = makeListActivityLogByAccountRepositoryStub()
+function makeSut(): SutTypes {
+  const listActivityLogByAccountStub =
+    makeListActivityLogByAccountRepositoryStub()
   const sut = new DbListActivityLogByAccount(listActivityLogByAccountStub)
 
   return {

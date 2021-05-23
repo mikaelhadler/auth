@@ -1,6 +1,10 @@
 import { DbCreateAuthGroup } from '@/use-case/auth-group/db-create-auth-group'
-import { CreateAuthGroupRepository } from '@/use-case/auth-group/protocols/create-auth-group-repository'
-import { makeCreateAuthGroupRepositoryStub, mockedAuthGroup, mockedAuthGroupProperties } from '../stubs/auth-group'
+import { CreateAuthGroupRepository } from '@auth/use-case'
+import {
+  makeCreateAuthGroupRepositoryStub,
+  mockedAuthGroup,
+  mockedAuthGroupProperties
+} from '../stubs/auth-group'
 
 describe('DbCreateAuthGroup', () => {
   it('should call CreateAuthGroupRepository with correct values', async () => {
@@ -14,7 +18,9 @@ describe('DbCreateAuthGroup', () => {
     const { sut, createAuthGroupStub } = makeSut()
     const functionName = 'create'
     const expectedThrow = new Error('any_create_auth_error')
-    jest.spyOn(createAuthGroupStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(createAuthGroupStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.create(mockedAuthGroupProperties)
     expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -26,11 +32,11 @@ describe('DbCreateAuthGroup', () => {
 })
 
 type SutTypes = {
-  sut: DbCreateAuthGroup,
+  sut: DbCreateAuthGroup
   createAuthGroupStub: CreateAuthGroupRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const createAuthGroupStub = makeCreateAuthGroupRepositoryStub()
   const sut = new DbCreateAuthGroup(createAuthGroupStub)
 

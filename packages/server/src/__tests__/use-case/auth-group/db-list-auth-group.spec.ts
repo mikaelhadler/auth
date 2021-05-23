@@ -1,5 +1,5 @@
 import { DbListAuthGroup } from '@/use-case/auth-group/db-list-auth-group'
-import { ListAuthGroupRepository } from '@/use-case/auth-group/protocols/list-auth-group-repository'
+import { ListAuthGroupRepository } from '@auth/use-case'
 import { makeListAuthGroupStub, mockedAuthGroupList } from '../stubs/auth-group'
 
 describe('DbListAuthGroup', () => {
@@ -14,7 +14,9 @@ describe('DbListAuthGroup', () => {
     const { sut, listAuthGroupStub } = makeSut()
     const functionName = 'list'
     const expectedThrow = new Error('any_list_auth_group_error')
-    jest.spyOn(listAuthGroupStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(listAuthGroupStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.list()
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -27,11 +29,11 @@ describe('DbListAuthGroup', () => {
 })
 
 type SutTypes = {
-  sut: DbListAuthGroup,
-  listAuthGroupStub: ListAuthGroupRepository,
+  sut: DbListAuthGroup
+  listAuthGroupStub: ListAuthGroupRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const listAuthGroupStub = makeListAuthGroupStub()
   const sut = new DbListAuthGroup(listAuthGroupStub)
 

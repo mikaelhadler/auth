@@ -1,6 +1,9 @@
 import { DbCreateActivityLog } from '@/use-case/activity-log/db-create-activity-log'
-import { CreateActivityLogRepository } from '@/use-case/activity-log/protocols/create-activity-log-repository'
-import { mockedActivityLog, mockedActivityLogProperties } from '@/__tests__/entity/mock/activity-log'
+import { CreateActivityLogRepository } from '@auth/use-case'
+import {
+  mockedActivityLog,
+  mockedActivityLogProperties
+} from '@/__tests__/entity/mock/activity-log'
 import { makeCreateActivityLogRepositoryStub } from '../stubs/activity-log'
 
 describe('DbCreateActivityLog', () => {
@@ -15,7 +18,9 @@ describe('DbCreateActivityLog', () => {
     const functionName = 'create'
     const expectedThrow = new Error('any_create_log_activity_error')
     const { sut, createActivityLogStub } = makeSut()
-    jest.spyOn(createActivityLogStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(createActivityLogStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.logActivity(mockedActivityLogProperties)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -27,11 +32,11 @@ describe('DbCreateActivityLog', () => {
 })
 
 type SutTypes = {
-  sut: DbCreateActivityLog,
+  sut: DbCreateActivityLog
   createActivityLogStub: CreateActivityLogRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const createActivityLogStub = makeCreateActivityLogRepositoryStub()
   const sut = new DbCreateActivityLog(createActivityLogStub)
 

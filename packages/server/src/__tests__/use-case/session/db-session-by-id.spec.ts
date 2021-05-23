@@ -1,4 +1,4 @@
-import { SessionByIdRepository } from '@/use-case/session/protocols/session-by-id-repository'
+import { SessionByIdRepository } from '@auth/use-case'
 import { DbSessionById } from '@/use-case/session/db-session-by-id'
 import { makeSessionByIdRepositoryStub, mockedSession } from '../stubs/sessions'
 
@@ -16,7 +16,9 @@ describe('DbSessionById', () => {
     const sessionId = '1a-1a-1a-1a'
     const expectedThrow = new Error('any_session_id_error')
     const { sut, sessionByIdStub } = makeSut()
-    jest.spyOn(sessionByIdStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(sessionByIdStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.getById(sessionId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -25,7 +27,9 @@ describe('DbSessionById', () => {
     const sessionId = '1a-1a-1a-1a'
     const expectedThrow = new Error('Session not found')
     const { sut, sessionByIdStub } = makeSut()
-    jest.spyOn(sessionByIdStub, functionName).mockReturnValueOnce(Promise.resolve(null))
+    jest
+      .spyOn(sessionByIdStub, functionName)
+      .mockReturnValueOnce(Promise.resolve(null))
     const promise = sut.getById(sessionId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -39,11 +43,11 @@ describe('DbSessionById', () => {
 })
 
 type SutTypes = {
-  sut: DbSessionById,
+  sut: DbSessionById
   sessionByIdStub: SessionByIdRepository
 }
 
-function makeSut ():SutTypes {
+function makeSut(): SutTypes {
   const sessionByIdStub = makeSessionByIdRepositoryStub()
   const sut = new DbSessionById(sessionByIdStub)
 

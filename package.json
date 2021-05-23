@@ -14,7 +14,12 @@
   "scripts": {
     "start-web": "yarn workspace @auth/web start",
     "start-server": "yarn workspace @auth/server start",
-    "test": "npx jest"
+    "test": "npx jest",
+    "lint:server": "yarn workspace @auth/server lint",
+    "lint:web": "yarn workspace @auth/web lint",
+    "lint:entity": "yarn workspace @auth/entity lint",
+    "lint:use-case": "yarn workspace @auth/use-case lint",
+    "lint": "npm run lint:server && npm run lint:web && npm run lint:entity && npm run lint:use-case"
   },
   "devDependencies": {
     "@types/faker": "^5.5.3",

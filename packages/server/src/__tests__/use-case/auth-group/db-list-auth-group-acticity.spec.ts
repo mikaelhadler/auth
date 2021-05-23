@@ -1,5 +1,5 @@
 import { DbListAuthGroupActivity } from '@/use-case/auth-group/db-list-auth-group-activity'
-import { GetAuthGroupRepository } from '@/use-case/auth-group/protocols/get-auth-group-repository'
+import { GetAuthGroupRepository } from '@auth/use-case'
 import { mockedAuthGroup, makeGetAuthGroupStub } from '../stubs/auth-group'
 
 describe('DbListAuthGroupActivity', () => {
@@ -16,7 +16,9 @@ describe('DbListAuthGroupActivity', () => {
     const functionName = 'get'
     const expectedThrow = new Error('any_list_auth_group_error')
     const authGroupId = 'a1-a1-a1-a1'
-    jest.spyOn(getAuthGroupStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(getAuthGroupStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.list(authGroupId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -24,8 +26,12 @@ describe('DbListAuthGroupActivity', () => {
     const { sut, getAuthGroupStub } = makeSut()
     const functionName = 'get'
     const authGroupId = 'a1-a1-a1-a1'
-    const expectedThrow = new Error(`auth group not found for id: ${authGroupId}`)
-    jest.spyOn(getAuthGroupStub, functionName).mockReturnValueOnce(Promise.resolve(null))
+    const expectedThrow = new Error(
+      `auth group not found for id: ${authGroupId}`
+    )
+    jest
+      .spyOn(getAuthGroupStub, functionName)
+      .mockReturnValueOnce(Promise.resolve(null))
     const promise = sut.list(authGroupId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -39,11 +45,11 @@ describe('DbListAuthGroupActivity', () => {
 })
 
 type SutTypes = {
-  sut: DbListAuthGroupActivity,
-  getAuthGroupStub: GetAuthGroupRepository,
+  sut: DbListAuthGroupActivity
+  getAuthGroupStub: GetAuthGroupRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const getAuthGroupStub = makeGetAuthGroupStub()
   const sut = new DbListAuthGroupActivity(getAuthGroupStub)
 

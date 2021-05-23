@@ -1,6 +1,9 @@
 import { DbListAllAccount } from '@/use-case/account/db-list-all-account'
-import { ListAllAccountRepository } from '@/use-case/account/protocols/list-all-account'
-import { makeListAllAccountRepositoryStub, mockedAccountList } from '../stubs/account'
+import { ListAllAccountRepository } from '@auth/use-case'
+import {
+  makeListAllAccountRepositoryStub,
+  mockedAccountList
+} from '../stubs/account'
 
 describe('DbListAllAccount', () => {
   it('should call ListAllAccountRepository', async () => {
@@ -14,7 +17,9 @@ describe('DbListAllAccount', () => {
     const { sut, listAllAccounts } = makeSut()
     const functionName = 'listAll'
     const expectedThrow = new Error('any_error')
-    jest.spyOn(listAllAccounts, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(listAllAccounts, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.listAll()
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -26,11 +31,11 @@ describe('DbListAllAccount', () => {
 })
 
 type SutTypes = {
-  sut: DbListAllAccount,
+  sut: DbListAllAccount
   listAllAccounts: ListAllAccountRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const listAllAccounts = makeListAllAccountRepositoryStub()
   const sut = new DbListAllAccount(listAllAccounts)
 

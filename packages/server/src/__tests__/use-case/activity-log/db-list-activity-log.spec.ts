@@ -1,5 +1,5 @@
 import { DbListActivityLog } from '@/use-case/activity-log/db-list-activity-log'
-import { ListActivityLogRepository } from '@/use-case/activity-log/protocols/list-activity-log-repository'
+import { ListActivityLogRepository } from '@auth/use-case'
 import { mockedActivityLogList } from '@/__tests__/entity/mock/activity-log'
 import { makeListActivityLogRepositoryStub } from '../stubs/activity-log'
 
@@ -15,7 +15,9 @@ describe('DbListActivityLog', () => {
     const { sut, listActivityLogStub } = makeSut()
     const functionName = 'listAll'
     const expectedThrow = new Error('any-list-activity-repo-error')
-    jest.spyOn(listActivityLogStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(listActivityLogStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.listAll()
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -28,11 +30,11 @@ describe('DbListActivityLog', () => {
 })
 
 type SutTypes = {
-  sut: DbListActivityLog,
+  sut: DbListActivityLog
   listActivityLogStub: ListActivityLogRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const listActivityLogStub = makeListActivityLogRepositoryStub()
   const sut = new DbListActivityLog(listActivityLogStub)
 

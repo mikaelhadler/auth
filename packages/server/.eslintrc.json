@@ -1,26 +1,22 @@
 {
-    "env": {
-        "es2021": true,
-        "node": true,
-        "jest": true
-    },
-    "extends": [
-        "standard",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "no-useless-constructor": "off",
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "camelcase": "off"
-    }   
+  "env": {
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["standard", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-useless-constructor": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "space-before-function-paren": "off",
+    "camelcase": "off"
+  }
 }

@@ -1,6 +1,9 @@
 import { DbCancelAccountById } from '@/use-case/account/db-cancel-account-by-id'
-import { CancelAccountByIdRepository } from '@/use-case/account/protocols/cancel-account-by-id-repository'
-import { makeCancelAccountByIdRepositoryStub, mockedAccount } from '../stubs/account'
+import { CancelAccountByIdRepository } from '@auth/use-case'
+import {
+  makeCancelAccountByIdRepositoryStub,
+  mockedAccount
+} from '../stubs/account'
 
 describe('DbCancelAccountById', () => {
   it('should call CancelAccountsByIdRepository with correct values', async () => {
@@ -16,7 +19,9 @@ describe('DbCancelAccountById', () => {
     const functionName = 'cancel'
     const accountId = '1a-1a-1a-1a'
     const expectedThrow = new Error('any_repo_error')
-    jest.spyOn(cancelAccountByIdStub, functionName).mockReturnValueOnce(Promise.reject(expectedThrow))
+    jest
+      .spyOn(cancelAccountByIdStub, functionName)
+      .mockReturnValueOnce(Promise.reject(expectedThrow))
     const promise = sut.cancel(accountId)
     await expect(promise).rejects.toThrowError(expectedThrow)
   })
@@ -29,11 +34,11 @@ describe('DbCancelAccountById', () => {
 })
 
 type SutTypes = {
-  sut: DbCancelAccountById,
+  sut: DbCancelAccountById
   cancelAccountByIdStub: CancelAccountByIdRepository
 }
 
-function makeSut (): SutTypes {
+function makeSut(): SutTypes {
   const cancelAccountByIdStub = makeCancelAccountByIdRepositoryStub()
   const sut = new DbCancelAccountById(cancelAccountByIdStub)
 

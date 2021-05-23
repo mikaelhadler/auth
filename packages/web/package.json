@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@auth/domain": "*",
+    "@auth/entity": "*",
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
     "vue": "^3.0.0",
