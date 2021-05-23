@@ -31,8 +31,9 @@ describe("ListAuthGroupRepository", () => {
         ],
       },
     ];
-    // @ts-ignore
+    /** @ts-ignore */
     prismaMock.as_auth_groups.findMany.mockReturnValueOnce(
+      /** @ts-ignore */
       mockAuthGroupPrismaRepository
     );
     const list = await sut.list();

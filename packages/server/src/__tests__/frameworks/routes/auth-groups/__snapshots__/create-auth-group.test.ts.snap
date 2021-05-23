@@ -1,37 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`POST /api/auth-groups should return HttpResponse Ok on success 1`] = `
-Array [
-  Object {
-    "activities": Array [
-      Object {
-        "activity": Object {
-          "id": "d0d8a425-7665-417d-9f70-0712c4bdae42",
-          "name": "auth-group",
-          "permissions": Array [
-            "readonly",
-            "create",
-            "delete",
-            "update",
-          ],
-        },
-        "activity_id": "d0d8a425-7665-417d-9f70-0712c4bdae42",
-        "auth_groups_id": "37f2e75e-4b86-4a99-977e-2aea6d4c782b",
-        "createdAt": "2021-05-07T17:17:30.941Z",
-      },
-    ],
-    "id": "37f2e75e-4b86-4a99-977e-2aea6d4c782b",
-    "title": "Administrator",
-  },
-]
-`;
+exports[`POST /api/auth-groups should return HttpResponse Ok on success 1`] = `Object {}`;
 
 exports[`POST /api/auth-groups should return HttpResponse serverError on repository throws 1`] = `
 Object {
   "error": Object {
     "message": "Internal server error",
     "stack": "Error: any_repository_error
-    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\frameworks\\\\routes\\\\auth-groups\\\\create-auth-group.test.ts:9:60)
+    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\frameworks\\\\routes\\\\auth-groups\\\\create-auth-group.test.ts:10:7)
     at Object.asyncJestTest (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\jasmineAsyncInstall.js:106:37)
     at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:45:12
     at new Promise (<anonymous>)

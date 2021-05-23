@@ -6,7 +6,7 @@ export class AuthGroupModel implements AuthGroup {
   title: string;
   activities: Activity[];
 
-  constructor(authGroup: OptionsType) {
+  constructor(authGroup: OptionsType = {}) {
     this.id = <uuid>authGroup.id;
     this.title = authGroup.title;
     this.activities = authGroup.activities;

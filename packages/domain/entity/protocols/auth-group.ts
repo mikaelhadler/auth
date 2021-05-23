@@ -10,7 +10,7 @@ export interface Activity {
 export interface AuthGroup {
   id: uuid;
   title: string;
-  activities: Activity[];
+  activities?: Activity[];
 }
 
 export type AuthGroupProperties = Omit<AuthGroup, "id">;

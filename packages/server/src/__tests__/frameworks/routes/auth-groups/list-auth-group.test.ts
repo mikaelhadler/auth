@@ -19,6 +19,7 @@ describe("GET /api/auth-groups", () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     prismaMock.as_auth_groups.findMany.mockReturnValueOnce(
+      // @ts-ignore
       mockAuthGroupPrismaRepository
     );
 

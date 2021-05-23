@@ -30,6 +30,7 @@ describe("POST /api/auth-groups", () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     prismaMock.as_auth_groups.create.mockReturnValueOnce(
+      // @ts-ignore
       mockAuthGroupPrismaRepository
     );
 

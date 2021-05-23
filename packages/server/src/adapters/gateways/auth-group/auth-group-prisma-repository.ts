@@ -13,8 +13,7 @@ import {
 import {
   as_activities,
   as_auth_groups,
-  as_auth_groups_activities,
-  PrismaClient,
+  as_auth_groups_activities
 } from "@prisma/client";
 import prisma from "@/frameworks/database/prisma-client-helper";
 
@@ -41,7 +40,7 @@ export class AuthGroupPrismaRepository
         },
       },
     });
-    return created;
+    return new AuthGroupModel(created);
   }
 
   async list(): Promise<AuthGroupModel[]> {

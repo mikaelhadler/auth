@@ -1,4 +1,4 @@
-import { uuid } from "@/../../shared/entity";
+import { uuid } from "@auth/entity";
 import { DbRemoveAuthGroupActivity } from "@/use-case/auth-group/db-remove-auth-group-activity";
 import {
   GetAuthGroupRepository,
