@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, index) in filterdItems" :key="index">
+      <tr v-for="(item, index) in filteredItems" :key="index">
         <td v-for="(header, index) in headers" :key="index">
           {{ item[header.key] }}
         </td>
@@ -75,14 +75,14 @@ export default class DataTable<T extends ItemModel> extends Vue {
   }
 
   get notItems(): boolean {
-    return !this.filterdItems.length;
+    return !this.filteredItems.length;
   }
 
   get hasActions(): boolean {
     return !!this.$slots.actions;
   }
 
-  get filterdItems(): T[] {
+  get filteredItems(): T[] {
     if (!this.search) return this.items;
     return this.items.filter((item) =>
       this.headers.some((header) =>
