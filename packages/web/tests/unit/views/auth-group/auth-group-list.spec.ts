@@ -1,7 +1,6 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, flushPromises } from "@vue/test-utils";
 import AuthGroupList from "@/views/auth-group/AuthGroupList.vue";
 import { createStore } from "vuex";
-
 import authGroup from "@/store/views/auth-group";
 
 const store = createStore({
@@ -17,7 +16,7 @@ describe("AuthGroupList.Vue", () => {
         plugins: [store],
       },
     });
-    await store.dispatch("authGroup/listAuthGroup");
+    await flushPromises();
     expect(wrapper.element).toMatchSnapshot();
   });
 });
