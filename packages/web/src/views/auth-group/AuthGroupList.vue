@@ -1,22 +1,20 @@
 <template>
-  <AuthGroupTable :items="items" :columns="columns">
+  <DataTable :items="items" :columns="columns">
     <template #actions="{ item }">
       <button class="btn btn-danger">{{ item }}</button>
     </template>
-  </AuthGroupTable>
+  </DataTable>
 </template>
 
 <script lang="ts">
-import { Options, Vue, mixins } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 import DataTable from "@/components/data-table/DataTable.vue";
 import { ColumnsConfig } from "../../components/data-table/protocols/data-table-utils";
 import { AuthGroup } from "@auth/entity";
 
-class AuthGroupTable extends mixins<DataTable<AuthGroup>>(DataTable) {}
-
 @Options({
   components: {
-    AuthGroupTable,
+    DataTable,
   },
 })
 export default class AuthGroupList extends Vue {

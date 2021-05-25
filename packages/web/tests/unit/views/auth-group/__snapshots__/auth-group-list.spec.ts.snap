@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AuthGroupList.Vue should render auth-group-list on DataTable component 1`] = `
-<auth-group-table-stub
+<data-table-stub
   columns="[object Object],[object Object]"
   items=""
 />
