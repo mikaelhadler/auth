@@ -6,19 +6,26 @@ exports[`DataTable.vue renders 'Nenhum item encontrado!' on empty items 1`] = `
 >
   
   <div
-    class="form-floating mx-3 mt-3"
+    class="row"
   >
-    <input
-      class="form-control"
-      id="search"
-      placeholder="Search"
-      type="text"
-    />
-    <label
-      for="search"
+    <div
+      class="col"
     >
-      Search
-    </label>
+      <div
+        class="form-floating mx-3 mt-3"
+      >
+        <input-search-stub
+          search=""
+        />
+      </div>
+    </div>
+    <div
+      class="col d-flex justify-content-end"
+    >
+      <div>
+        button
+      </div>
+    </div>
   </div>
   <table
     class="table"
@@ -58,205 +65,32 @@ exports[`DataTable.vue renders 'Nenhum item encontrado!' on empty items 1`] = `
 </div>
 `;
 
-exports[`DataTable.vue renders items filtered when search not null 1`] = `
-<div
-  data-v-app=""
->
-  
-  <div
-    class="form-floating mx-3 mt-3"
-  >
-    <input
-      class="form-control"
-      id="search"
-      placeholder="Search"
-      type="text"
-    />
-    <label
-      for="search"
-    >
-      Search
-    </label>
-  </div>
-  <table
-    class="table"
-  >
-    <thead>
-      <tr>
-        
-        <th
-          scope="col"
-        >
-          #
-        </th>
-        <th
-          scope="col"
-        >
-          My Title
-        </th>
-        
-        <!--v-if-->
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        
-        <td>
-          any_id_2
-        </td>
-        <td>
-          any_title_2
-        </td>
-        
-        <!--v-if-->
-      </tr>
-      
-      <!--v-if-->
-    </tbody>
-  </table>
-  
-</div>
-`;
-
-exports[`DataTable.vue renders items filtered when search not null 2`] = `
-<div
-  data-v-app=""
->
-  
-  <div
-    class="form-floating mx-3 mt-3"
-  >
-    <input
-      class="form-control"
-      id="search"
-      placeholder="Search"
-      type="text"
-    />
-    <label
-      for="search"
-    >
-      Search
-    </label>
-  </div>
-  <table
-    class="table"
-  >
-    <thead>
-      <tr>
-        
-        <th
-          scope="col"
-        >
-          #
-        </th>
-        <th
-          scope="col"
-        >
-          My Title
-        </th>
-        
-        <!--v-if-->
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        
-        <td>
-          any_id_2
-        </td>
-        <td>
-          any_title_2
-        </td>
-        
-        <!--v-if-->
-      </tr>
-      
-      <!--v-if-->
-    </tbody>
-  </table>
-  
-</div>
-`;
-
-exports[`DataTable.vue renders message on items filtered not found any items 1`] = `
-<div
-  data-v-app=""
->
-  
-  <div
-    class="form-floating mx-3 mt-3"
-  >
-    <input
-      class="form-control"
-      id="search"
-      placeholder="Search"
-      type="text"
-    />
-    <label
-      for="search"
-    >
-      Search
-    </label>
-  </div>
-  <table
-    class="table"
-  >
-    <thead>
-      <tr>
-        
-        <th
-          scope="col"
-        >
-          #
-        </th>
-        <th
-          scope="col"
-        >
-          My Title
-        </th>
-        
-        <!--v-if-->
-      </tr>
-    </thead>
-    <tbody>
-      
-      
-      <tr>
-        <td
-          class="text-center text-nowrap text-muted"
-        >
-          <span>
-            Nenhum item encontrado para "any_title_3"!
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-</div>
-`;
-
 exports[`DataTable.vue renders props.columns and items values when passed 1`] = `
 <div
   data-v-app=""
 >
   
   <div
-    class="form-floating mx-3 mt-3"
+    class="row"
   >
-    <input
-      class="form-control"
-      id="search"
-      placeholder="Search"
-      type="text"
-    />
-    <label
-      for="search"
+    <div
+      class="col"
     >
-      Search
-    </label>
+      <div
+        class="form-floating mx-3 mt-3"
+      >
+        <input-search-stub
+          search=""
+        />
+      </div>
+    </div>
+    <div
+      class="col d-flex justify-content-end"
+    >
+      <div>
+        button
+      </div>
+    </div>
   </div>
   <table
     class="table"
@@ -283,21 +117,14 @@ exports[`DataTable.vue renders props.columns and items values when passed 1`] = 
       <tr>
         
         <td>
-          any_id
+          <span>
+            any_id
+          </span>
         </td>
         <td>
-          any_title
-        </td>
-        
-        <!--v-if-->
-      </tr>
-      <tr>
-        
-        <td>
-          any_id_1
-        </td>
-        <td>
-          any_title_1
+          <span>
+            any_title
+          </span>
         </td>
         
         <!--v-if-->
@@ -305,10 +132,29 @@ exports[`DataTable.vue renders props.columns and items values when passed 1`] = 
       <tr>
         
         <td>
-          any_id_2
+          <span>
+            any_id_1
+          </span>
         </td>
         <td>
-          any_title_2
+          <span>
+            any_title_1
+          </span>
+        </td>
+        
+        <!--v-if-->
+      </tr>
+      <tr>
+        
+        <td>
+          <span>
+            any_id_2
+          </span>
+        </td>
+        <td>
+          <span>
+            any_title_2
+          </span>
         </td>
         
         <!--v-if-->
