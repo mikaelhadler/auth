@@ -1,27 +1,20 @@
 import {
-  Activity,
   AuthGroup,
   AuthGroupModel,
   AuthGroupProperties,
-  uuid,
-} from "@auth/entity";
+  uuid
+} from "@auth/entity"
 import {
   ListAuthGroupRepository,
-  CreateAuthGroupRepository,
-} from "@auth/use-case";
+  CreateAuthGroupRepository
+} from "@auth/use-case"
 
 import {
   as_activities,
   as_auth_groups,
   as_auth_groups_activities
-} from "@prisma/client";
-import prisma from "@/frameworks/database/prisma-client-helper";
-
-type FullAuthGroup = as_auth_groups & {
-  activities: (as_auth_groups_activities & {
-    activity: as_activities;
-  })[];
-};
+} from "@prisma/client"
+import prisma from "@/frameworks/database/prisma-client-helper"
 
 // TODO - make tests (jest-mock-extended | prisma-test-utils)
 export class AuthGroupPrismaRepository
@@ -34,35 +27,22 @@ export class AuthGroupPrismaRepository
         activities: {
           createMany: {
             data: authGroup.activities.map((activity) => ({
-              activity_id: activity.id,
-            })),
-          },
-        },
-      },
-    });
-    return new AuthGroupModel(created);
+              activity_id: activity.id
+            }))
+          }
+        }
+      }
+    })
+    return new AuthGroupModel(created)
   }
 
   async list(): Promise<AuthGroupModel[]> {
-    const response = await prisma.as_auth_groups.findMany({
-      include: {
-        activities: {
-          include: { activity: true },
-        },
-      },
-    });
-    return response.map((item: FullAuthGroup): AuthGroupModel => {
+    const response = await prisma.as_auth_groups.findMany()
+    return response.map((item: as_auth_groups): AuthGroupModel => {
       return new AuthGroupModel({
-        id: item.id,
-        title: item.title,
-        activities: item.activities.map(
-          ({ activity }): Activity => ({
-            id: <uuid>activity.id,
-            name: activity.name,
-            permissions: activity.permissions,
-          })
-        ),
-      });
-    });
+        id: <uuid>item.id,
+        title: item.title
+      })
+    })
   }
 }

@@ -3,18 +3,6 @@
 exports[`GET /api/auth-groups should return HttpResponse Ok on success 1`] = `
 Array [
   Object {
-    "activities": Array [
-      Object {
-        "id": "d0d8a425-7665-417d-9f70-0712c4bdae42",
-        "name": "auth-group",
-        "permissions": Array [
-          "readonly",
-          "create",
-          "delete",
-          "update",
-        ],
-      },
-    ],
     "id": "37f2e75e-4b86-4a99-977e-2aea6d4c782b",
     "title": "Administrator",
   },
