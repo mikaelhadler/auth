@@ -5,35 +5,44 @@ import {
   uuid
 } from "@auth/entity"
 import {
+  CreateAuthGroupRepository,
   ListAuthGroupRepository,
-  CreateAuthGroupRepository
+  RemoveAuthGroupRepository
 } from "@auth/use-case"
 
-import {
-  as_activities,
-  as_auth_groups,
-  as_auth_groups_activities
-} from "@prisma/client"
+import { as_auth_groups } from "@prisma/client"
 import prisma from "@/frameworks/database/prisma-client-helper"
 
-// TODO - make tests (jest-mock-extended | prisma-test-utils)
 export class AuthGroupPrismaRepository
-  implements ListAuthGroupRepository, CreateAuthGroupRepository
+  implements
+    ListAuthGroupRepository,
+    CreateAuthGroupRepository,
+    RemoveAuthGroupRepository
 {
-  async create(authGroup: AuthGroupProperties): Promise<AuthGroup> {
-    const created = await prisma.as_auth_groups.create({
-      data: {
-        title: authGroup.title,
-        activities: {
-          createMany: {
-            data: authGroup.activities.map((activity) => ({
-              activity_id: activity.id
-            }))
-          }
-        }
+  async remove(authGroupId: uuid): Promise<AuthGroup> {
+    const authGroup = await prisma.as_auth_groups.delete({
+      where: {
+        id: authGroupId
       }
     })
-    return new AuthGroupModel(created)
+    return authGroup
+  }
+
+  async create(authGroup: AuthGroupProperties): Promise<AuthGroup> {
+    // const created = await prisma.as_auth_groups.create({
+    //   data: {
+    //     title: authGroup.title,
+    //     activities: {
+    //       createMany: {
+    //         data: authGroup.activities.map((activity) => ({
+    //           activity_id: <string>activity.id
+    //         }))
+    //       }
+    //     }
+    //   }
+    // })
+    // return new AuthGroupModel(created)
+    return null
   }
 
   async list(): Promise<AuthGroupModel[]> {

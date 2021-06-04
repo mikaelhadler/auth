@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DELETE /api/auth-groups/:id should return HttpResponse Ok on success 1`] = `
+Object {
+  "id": "37f2e75e-4b86-4a99-977e-2aea6d4c782b",
+  "title": "Administrator",
+}
+`;
+
+exports[`DELETE /api/auth-groups/:id should return HttpResponse badRequest on authGroup used 1`] = `
+Object {
+  "error": Object {
+    "message": "Internal server error",
+    "stack": "Error: auth group in use
+    at DbRemoveAuthGroup.remove (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\use-case\\\\auth-group\\\\db-remove-auth-group.ts:16:13)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at RemoveAuthGroupController.handler (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\adapters\\\\controllers\\\\auth-group\\\\remove-auth-group-controller.ts:14:24)
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\frameworks\\\\adapters\\\\express-router-adapter.ts:11:26",
+  },
+}
+`;
+
+exports[`DELETE /api/auth-groups/:id should return HttpResponse serverError on repository throws 1`] = `
+Object {
+  "error": Object {
+    "message": "Internal server error",
+    "stack": "Error: any_repository_error
+    at Object.<anonymous> (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\__tests__\\\\frameworks\\\\routes\\\\auth-groups\\\\remove-auth-group.test.ts:13:7)
+    at Object.asyncJestTest (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\jasmineAsyncInstall.js:106:37)
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:28:19)
+    at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)",
+  },
+}
+`;
