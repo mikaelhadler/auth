@@ -1,4 +1,4 @@
-import { AccountModel, uuid } from "@auth/entity";
+import { Accounts, uuid } from "@auth/entity"
 export interface AccountsByGroupRepository {
-  getAccountByGroup(authGroupId: uuid): Promise<AccountModel[]>;
+  getAccountByGroup(authGroupId: uuid): Promise<Accounts[]>
 }

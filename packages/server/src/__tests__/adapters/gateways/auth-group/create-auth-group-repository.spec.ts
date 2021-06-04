@@ -6,7 +6,7 @@ import { CreateAuthGroupRepository } from "@auth/use-case"
 import { AuthGroupProperties } from "@auth/entity"
 
 describe("CreateAuthGroupRepository", () => {
-  it("should call create", async () => {
+  it.skip("should call create", async () => {
     const { sut } = makeSut()
     const authGroup: AuthGroupProperties = {
       title: "Administrator",

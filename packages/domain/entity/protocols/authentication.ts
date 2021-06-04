@@ -1,43 +1,45 @@
-import { uuid } from "./utils";
+import { Accounts } from "./account"
+import { AuthGroup } from "./auth-group"
+import { uuid } from "./utils"
 
 export enum AuthenticationStatusEnum {
   Online,
   Offline,
   Blocked,
-  Created,
+  Created
 }
 
 export interface Authentication {
-  id: uuid;
-  accountId: uuid;
-  password: string;
-  attempts: number;
-  sessionLimit: number;
-  status: AuthenticationStatusEnum;
-  active: boolean;
-  authGroup: string[];
-  createdAt: Date;
-  updatedAt: Date;
+  id: uuid
+  account: Accounts
+  password: string
+  attempts: number
+  sessionLimit: number
+  status: AuthenticationStatusEnum
+  active: boolean
+  authGroup: AuthGroup[]
+  createdAt: Date
+  updatedAt: Date
 }
 
-export type AuthenticationProperties = Omit<Authentication, "id">;
+export type AuthenticationProperties = Omit<Authentication, "id">
 
 export interface AuthenticationList {
-  getList(): Promise<Authentication[]>;
+  getList(): Promise<Authentication[]>
 }
 
 export interface AuthenticationByAccount {
-  getByAccountId(accountId: uuid): Promise<Authentication>;
+  getByAccountId(accountId: uuid): Promise<Authentication>
 }
 
 export interface UpdateAuthentication {
-  updateById(id: uuid, auth: AuthenticationProperties): Promise<Authentication>;
+  updateById(id: uuid, auth: AuthenticationProperties): Promise<Authentication>
 }
 
 export interface CreateAuthentication {
-  create(auth: AuthenticationProperties): Promise<Authentication>;
+  create(auth: AuthenticationProperties): Promise<Authentication>
 }
 
 export interface CancelAuthentication {
-  cancel(authenticationId: uuid): Promise<void>;
+  cancel(authenticationId: uuid): Promise<void>
 }

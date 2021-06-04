@@ -7,25 +7,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model as_accounts {
+  id                 String                 @id @default(uuid())
+  name               String
+  username           String                 @unique
+  email              String                 @unique
+  phone              String?
+  active             Boolean                @default(true)
+  status             as_account_status_enum @default(WAITING_FOR_APPROVAL)
+  address_id         String?
+  authentication_id  String?
+  as_address         as_address?            @relation(fields: [address_id], references: [id])
+  as_authentications as_authentications?    @relation("as_account_authentication_idToas_authentications", fields: [authentication_id], references: [id])
+  authentication     as_authentications?    @relation("as_accountToas_authentications_as_account_id")
+  created_at         DateTime               @default(now())
+}
+
 model as_activities {
-  id          String                      @id @default(uuid())
-  name        String                      @unique
-  permissions String[]
-  auth_groups as_auth_groups_activities[]
+  id                        String                      @id @default(uuid())
+  name                      String                      @unique
+  permissions               String[]
+  as_auth_groups_activities as_auth_groups_activities[]
+}
+
+model as_address {
+  id          String        @id @default(uuid())
+  street      String?
+  suite       String?
+  city        String?
+  zip_code    String
+  as_accounts as_accounts[]
 }
 
 model as_auth_groups {
-  id         String                      @id @default(uuid())
-  title      String                      @unique
-  activities as_auth_groups_activities[]
+  id                             String                           @id @default(uuid())
+  title                          String                           @unique
+  as_auth_groups_activities      as_auth_groups_activities[]
+  as_auth_groups_authentications as_auth_groups_authentications[]
 }
 
 model as_auth_groups_activities {
-  activity       as_activities  @relation(fields: [activity_id], references: [id])
-  auth_group     as_auth_groups @relation(fields: [auth_groups_id], references: [id])
   activity_id    String
   auth_groups_id String
-  createdAt      DateTime       @default(now())
+  created_at     DateTime       @default(now())
+  as_activities  as_activities  @relation(fields: [activity_id], references: [id])
+  as_auth_groups as_auth_groups @relation(fields: [auth_groups_id], references: [id])
 
   @@id([activity_id, auth_groups_id])
+}
+
+model as_auth_groups_authentications {
+  auth_groups_id     String
+  authentication_id  String
+  created_at         DateTime           @default(now())
+  as_auth_groups     as_auth_groups     @relation(fields: [auth_groups_id], references: [id])
+  as_authentications as_authentications @relation(fields: [authentication_id], references: [id])
+
+  @@id([authentication_id, auth_groups_id])
+}
+
+model as_authentications {
+  id                             String                           @id @default(uuid())
+  password                       String
+  attempts                       Int
+  session_limit                  Int                              @default(1)
+  status                         as_authentication_status_enum    @default(CREATED)
+  active                         Boolean                          @default(true)
+  created_at                     DateTime                         @default(now())
+  updated_at                     DateTime                         @default(now())
+  as_account_id                  String                           @unique
+  as_accounts                    as_accounts                      @relation("as_accountToas_authentications_as_account_id", fields: [as_account_id], references: [id])
+  accounts                       as_accounts[]                    @relation("as_account_authentication_idToas_authentications")
+  as_auth_groups_authentications as_auth_groups_authentications[]
+}
+
+enum as_account_status_enum {
+  WAITING_FOR_APPROVAL
+  APPROVED
+  REPROVED
+  BLOCKED
+}
+
+enum as_authentication_status_enum {
+  ONLINE
+  OFFLINE
+  BLOCKED
+  CREATED
 }

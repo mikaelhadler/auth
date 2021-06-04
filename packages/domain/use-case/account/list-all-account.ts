@@ -1,5 +1,5 @@
-import { AccountModel } from "@auth/entity";
+import { Accounts } from "@auth/entity"
 
 export interface ListAllAccountRepository {
-  listAll(): Promise<AccountModel[]>;
+  listAll(): Promise<Accounts[]>
 }
