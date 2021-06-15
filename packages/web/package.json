@@ -14,6 +14,7 @@
     "@auth/use-case": "*",
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
+    "material-design-icons": "^3.0.1",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",

@@ -32,13 +32,7 @@
         </td>
         <td v-if="hasActions">
           <slot name="actions" :item="item">
-            <button
-              class="btn btn-danger"
-              v-if="removable"
-              @click="remove(item)"
-            >
-              Remove
-            </button>
+            <BtnRemove v-if="removable" @click="remove(item)" />
           </slot>
         </td>
       </tr>
@@ -56,11 +50,13 @@
 import { Vue, Options } from "vue-class-component"
 import { ItemModel, Headers, ColumnsConfig } from "./protocols/data-table-utils"
 import InputSearch from "@/components/form/InputSearch.vue"
+import BtnRemove from "@/components/btn/BtnRemove.vue"
 
 @Options({
   name: "DataTable",
   components: {
-    InputSearch
+    InputSearch,
+    BtnRemove
   },
   props: {
     items: { type: Array, required: true },

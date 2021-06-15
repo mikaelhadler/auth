@@ -13,7 +13,7 @@ Object {
     "message": "Internal server error",
     "stack": "Error: auth group in use
     at DbRemoveAuthGroup.remove (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\use-case\\\\auth-group\\\\db-remove-auth-group.ts:16:13)
-    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
     at RemoveAuthGroupController.handler (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\adapters\\\\controllers\\\\auth-group\\\\remove-auth-group-controller.ts:14:24)
     at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\packages\\\\server\\\\src\\\\frameworks\\\\adapters\\\\express-router-adapter.ts:11:26",
   },
@@ -31,7 +31,7 @@ Object {
     at new Promise (<anonymous>)
     at mapper (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:28:19)
     at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41
-    at processTicksAndRejections (node:internal/process/task_queues:94:5)",
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)",
   },
 }
 `;

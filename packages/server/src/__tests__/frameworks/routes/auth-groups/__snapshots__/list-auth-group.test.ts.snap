@@ -20,7 +20,7 @@ Object {
     at new Promise (<anonymous>)
     at mapper (D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:28:19)
     at D:\\\\BIBLIOTECAS\\\\Desktop\\\\auth-monorepo\\\\node_modules\\\\@jest\\\\core\\\\node_modules\\\\jest-jasmine2\\\\build\\\\queueRunner.js:75:41
-    at processTicksAndRejections (node:internal/process/task_queues:94:5)",
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)",
   },
 }
 `;

@@ -30,7 +30,7 @@ export default class AuthGroupList extends Vue {
   }
 
   removeItem(item: AuthGroup): void {
-    console.log(item)
+    this.$store.dispatch("authGroup/removeAuthGroup", item.id)
   }
 
   mounted(): void {

@@ -20,6 +20,12 @@ export class AuthGroupPrismaRepository
     RemoveAuthGroupRepository
 {
   async remove(authGroupId: uuid): Promise<AuthGroup> {
+    await prisma.as_auth_groups_activities.deleteMany({
+      where: {
+        auth_groups_id: authGroupId
+      }
+    })
+
     const authGroup = await prisma.as_auth_groups.delete({
       where: {
         id: authGroupId
